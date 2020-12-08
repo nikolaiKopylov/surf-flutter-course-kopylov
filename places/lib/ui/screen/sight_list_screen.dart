@@ -15,7 +15,8 @@ class _SightListScreenState extends State<SightListScreen> {
         toolbarHeight: 72.0,
         title: Text(
           "Список \nинтересных мест",
-          style: TextStyle(fontFamily: 'Roboto', color: Colors.black),
+          style: TextStyle(
+              fontFamily: 'Roboto', color: Colors.black, fontSize: 32),
           textAlign: TextAlign.start,
           maxLines: 2,
         ),
