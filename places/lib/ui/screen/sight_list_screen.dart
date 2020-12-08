@@ -16,7 +16,10 @@ class _SightListScreenState extends State<SightListScreen> {
         title: Text(
           "Список \nинтересных мест",
           style: TextStyle(
-              fontFamily: 'Roboto', color: Colors.black, fontSize: 32),
+              fontFamily: 'Roboto',
+              color: Colors.black,
+              fontSize: 32,
+              fontWeight: FontWeight.bold),
           textAlign: TextAlign.start,
           maxLines: 2,
         ),
