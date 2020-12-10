@@ -13,6 +13,7 @@ class _SightListScreenState extends State<SightListScreen> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         toolbarHeight: 72.0,
+RichText
         title: RichText(
             text: TextSpan(children: [
           TextSpan(
