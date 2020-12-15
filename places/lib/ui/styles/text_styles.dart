@@ -22,4 +22,31 @@ class AppTextStyles {
     fontSize: 32,
     fontWeight: FontWeight.bold,
   );
+
+  static const textStyleSightCardBottomUp = TextStyle(
+    fontFamily: 'Roboto',
+    color: Colors.black,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  );
+
+  static const textStyleSightCardBottomDown = TextStyle(
+    fontFamily: 'Roboto',
+    color: Colors.grey,
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+  );
+  static const textStyleDetailTitle = TextStyle(
+    fontFamily: 'Roboto',
+    color: Colors.black,
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  );
+
+  static const textStyleDetailText = TextStyle(
+    fontFamily: 'Roboto',
+    color: Colors.black,
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+  );
 }
