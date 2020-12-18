@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/mocks.dart';
+import 'package:places/ui/constants.dart';
 import 'package:places/ui/styles/text_styles.dart';
+
+/// Экран карточки интересного места
 
 class SightCard extends StatelessWidget {
   final Sight sight;
 
   const SightCard({
     Key key,
-    this.sight,
+    @required this.sight,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,7 @@ class SightCard extends StatelessWidget {
               Positioned(
                 left: 16,
                 top: 16,
-                child: Text('музей'),
+                child: Text(AppTexts.sightCardType),
               ),
               Positioned(
                 right: 16,
@@ -50,21 +54,20 @@ class SightCard extends StatelessWidget {
             ),
             height: 92,
             width: double.infinity,
-            color: Color(0xF5F5F5),
+            color: AppColors.greyBackground,
             child: Column(
-              //mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    'Воронежский областной краеведческий музей',
+                    AppTexts.sightCardText,
                     style: AppTextStyles.textStyleSightCardBottomUp,
                   ),
                 ),
                 Container(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    'краткое описаниe ',
+                    AppTexts.shortDescription,
                     style: AppTextStyles.textStyleSightCardBottomDown,
                   ),
                 ),
