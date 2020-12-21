@@ -18,10 +18,10 @@ class Sight {
     @required this.url,
     @required this.details,
     @required this.type,
-  }) : assert(name != null &&
-            lat != null &&
-            lon != null &&
-            url != null &&
-            details != null &&
-            type != null);
+  })  : assert(name != null),
+        assert(lat != null),
+        assert(lon != null),
+        assert(url != null),
+        assert(details != null),
+        assert(type != null);
 }

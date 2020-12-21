@@ -33,7 +33,7 @@ class SightCard extends StatelessWidget {
               Positioned(
                 left: 16,
                 top: 16,
-                child: Text(AppTexts.sightCardType),
+                child: Text(sight.type),
               ),
               Positioned(
                 right: 16,
@@ -60,7 +60,8 @@ class SightCard extends StatelessWidget {
                 Container(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    AppTexts.sightCardText,
+                    sight.name,
+                    //AppTexts.sightCardText,
                     style: AppTextStyles.textStyleSightCardBottomUp,
                   ),
                 ),
