@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/ui/screen/sight_card.dart';
 import 'package:places/ui/styles/text_styles.dart';
 
 class SightListScreen extends StatefulWidget {
@@ -14,28 +15,23 @@ class _SightListScreenState extends State<SightListScreen> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         toolbarHeight: 72.0,
-RichText
-        title: RichText(
-            text: TextSpan(children: [
-          TextSpan(
-              text: 'С',
-              style: AppTextStyles.textStyleAppBarGreen,
-              children: [
-                TextSpan(
-                  text: 'писок',
-                  style: AppTextStyles.textStyleAppBarBlack,
-                )
-              ]),
-          TextSpan(
-              text: '\nи',
-              style: AppTextStyles.textStyleAppBarYellow,
-              children: [
-                TextSpan(
-                  text: 'нтересных мест',
-                  style: AppTextStyles.textStyleAppBarBlack,
-                ),
-              ])
-        ])),
+        title: Text(
+          "Список \nинтересных мест",
+          style: AppTextStyles.textStyleAppBarBlack,
+          textAlign: TextAlign.start,
+          maxLines: 2,
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SightCard(),
+            SightCard(),
+            SightCard(),
+            SightCard(),
+          ],
+        ),
+
       ),
     );
   }

@@ -1,7 +1,3 @@
-import 'dart:html';
-
-import 'package:flutter/cupertino.dart';
-
 class Sight {
   final String name;
   final double lat;
