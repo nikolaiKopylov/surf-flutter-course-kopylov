@@ -31,6 +31,7 @@ class _SightListScreenState extends State<SightListScreen> {
             SightCard(),
           ],
         ),
+
       ),
     );
   }
