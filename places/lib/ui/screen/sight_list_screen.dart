@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/ui/styles/text_styles.dart';
 
 class SightListScreen extends StatefulWidget {
   @override
@@ -18,35 +19,21 @@ RichText
             text: TextSpan(children: [
           TextSpan(
               text: 'С',
-              style: TextStyle(
-                  fontFamily: 'Roboto',
-                  color: Colors.green,
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold),
+              style: AppTextStyles.textStyleAppBarGreen,
               children: [
                 TextSpan(
-                    text: 'писок',
-                    style: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Colors.black,
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold))
+                  text: 'писок',
+                  style: AppTextStyles.textStyleAppBarBlack,
+                )
               ]),
           TextSpan(
               text: '\nи',
-              style: TextStyle(
-                  fontFamily: 'Roboto',
-                  color: Colors.yellow,
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold),
+              style: AppTextStyles.textStyleAppBarYellow,
               children: [
                 TextSpan(
-                    text: 'нтересных мест',
-                    style: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Colors.black,
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold)),
+                  text: 'нтересных мест',
+                  style: AppTextStyles.textStyleAppBarBlack,
+                ),
               ])
         ])),
       ),
