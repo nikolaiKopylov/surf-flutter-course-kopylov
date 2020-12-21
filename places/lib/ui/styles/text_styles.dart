@@ -1,52 +1,52 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:places/ui/constants.dart';
+
+/// TextStyle используемые в проекте
 
 class AppTextStyles {
-  static const textStyleAppBarBlack = TextStyle(
+  static const TextStyle _textStyleRoboto = TextStyle(
     fontFamily: 'Roboto',
-    color: Colors.black,
-    fontSize: 32,
     fontWeight: FontWeight.bold,
   );
 
-  static const textStyleAppBarYellow = TextStyle(
-    fontFamily: 'Roboto',
+  static TextStyle textStyleAppBarBlack = _textStyleRoboto.copyWith(
+    color: AppColors.black,
+    fontSize: 32,
+  );
+
+  static TextStyle textStyleAppBarYellow = _textStyleRoboto.copyWith(
     color: Colors.yellow,
     fontSize: 32,
-    fontWeight: FontWeight.bold,
   );
 
-  static const textStyleAppBarGreen = TextStyle(
-    fontFamily: 'Roboto',
-    color: Colors.green,
+  static TextStyle textStyleAppBarGreen = _textStyleRoboto.copyWith(
+    color: AppColors.green,
     fontSize: 32,
-    fontWeight: FontWeight.bold,
   );
 
-  static const textStyleSightCardBottomUp = TextStyle(
-    fontFamily: 'Roboto',
-    color: Colors.black,
+  static TextStyle textStyleSightCardBottomUp = _textStyleRoboto.copyWith(
+    color: AppColors.black,
     fontSize: 16,
-    fontWeight: FontWeight.bold,
   );
 
-  static const textStyleSightCardBottomDown = TextStyle(
-    fontFamily: 'Roboto',
-    color: Colors.grey,
+  static TextStyle textStyleSightCardBottomDown = _textStyleRoboto.copyWith(
+    color:
+        AppColors.grey2, // AppColors.greyBackground, почти не видно на экране
     fontSize: 14,
-    fontWeight: FontWeight.bold,
   );
-  static const textStyleDetailTitle = TextStyle(
-    fontFamily: 'Roboto',
-    color: Colors.black,
+  static TextStyle textStyleDetailTitle = _textStyleRoboto.copyWith(
+    color: AppColors.black,
     fontSize: 24,
-    fontWeight: FontWeight.bold,
   );
 
-  static const textStyleDetailText = TextStyle(
-    fontFamily: 'Roboto',
-    color: Colors.black,
+  static TextStyle textStyleDetailText = _textStyleRoboto.copyWith(
+    color: AppColors.black,
     fontSize: 14,
-    fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle textStyleDetailGrey = _textStyleRoboto.copyWith(
+    color: AppColors.grey2,
+    fontSize: 14,
   );
 }
