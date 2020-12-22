@@ -53,6 +53,7 @@ class SightCard extends StatelessWidget {
               padding: EdgeInsets.only(
                 right: 16,
                 left: 16,
+                bottom: 16,
               ),
               height: 92,
               width: double.infinity,
