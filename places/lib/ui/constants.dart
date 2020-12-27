@@ -17,8 +17,6 @@ class AppColors {
 
 class AppTexts {
   static const appHeader = "Список \nинтересных мест";
-  static const sightCardText = 'Воронежский областной краеведческий музей';
-  static const sightCardType = 'музей';
   static const createRoute = 'ПОСТРОИТЬ МАРШРУТ';
   static const addPlan = 'Запланировать';
   static const toFavorites = 'В Избранное';

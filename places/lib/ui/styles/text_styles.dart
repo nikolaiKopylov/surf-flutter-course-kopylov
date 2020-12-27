@@ -49,4 +49,9 @@ class AppTextStyles {
     color: AppColors.grey2,
     fontSize: 14,
   );
+
+  static TextStyle textStyleDetailWhite = _textStyleRoboto.copyWith(
+    color: AppColors.white,
+    fontSize: 14,
+  );
 }
