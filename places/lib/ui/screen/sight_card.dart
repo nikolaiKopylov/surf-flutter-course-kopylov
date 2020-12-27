@@ -29,9 +29,28 @@ class SightCard extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  color: Colors.amber,
+                  //   color: Colors.amber,
                   width: double.infinity,
                   height: 96,
+                  child: Image.network(
+                    sight.url,
+                    fit: BoxFit.cover,
+                    loadingBuilder: (
+                      BuildContext context,
+                      Widget child,
+                      ImageChunkEvent loadingProgress,
+                    ) {
+                      if (loadingProgress == null) return child;
+                      return Center(
+                        child: CircularProgressIndicator(
+                          value: loadingProgress.expectedTotalBytes != null
+                              ? loadingProgress.cumulativeBytesLoaded /
+                                  loadingProgress.expectedTotalBytes
+                              : null,
+                        ),
+                      );
+                    },
+                  ),
                 ),
                 Positioned(
                   left: 16,
@@ -42,9 +61,10 @@ class SightCard extends StatelessWidget {
                   right: 16,
                   top: 16,
                   child: Container(
-                    color: Colors.red,
+                    // color: Colors.red,
                     width: 20,
                     height: 18,
+                    child: Image.asset('res/icon/icon_heart.png'),
                   ),
                 ),
               ],
