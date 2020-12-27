@@ -24,7 +24,7 @@ class SightDetailTitle extends StatelessWidget {
         Container(
           width: double.infinity,
           child: Text(
-            mocks[0].name,
+            sight.name,
             style: AppTextStyles.textStyleDetailTitle,
           ),
         ),
@@ -37,7 +37,7 @@ class SightDetailTitle extends StatelessWidget {
                   right: 16,
                 ),
                 child: Text(
-                  mocks[0].type,
+                  sight.type,
                   style: AppTextStyles.textStyleSightCardBottomUp,
                 ),
               ),
