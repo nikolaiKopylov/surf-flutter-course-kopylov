@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/ui/screen/util/utils.dart';
+import 'package:places/ui/widget/image_network.dart';
 
-/// Header экрана SightDetail
-/// заглушка экрана для будущей галереи
-
+/// Header sceen SightDetail
+/// заглушка экрана для будующей галереи
 class SightDetailHeader extends StatelessWidget {
   final Sight sight;
 
@@ -12,17 +11,14 @@ class SightDetailHeader extends StatelessWidget {
     Key key,
     @required this.sight,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 360,
       width: double.infinity,
       color: Colors.blueGrey,
-      child: Image.network(
-        sight.url,
-        fit: BoxFit.cover,
-        loadingBuilder: buildImageProgressIndicator,
-      ),
+      child: ImageNetwork(imageUrl: sight.url),
     );
   }
 }

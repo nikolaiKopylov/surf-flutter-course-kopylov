@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/mocks.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/styles/text_styles.dart';
 
 /// Title для текста на экране SightDetail
-
 class SightDetailTitle extends StatelessWidget {
   final Sight sight;
 

@@ -8,7 +8,6 @@ import 'package:places/ui/screen/sight_detail/sight_detail_widget.dart';
 ///     "проложить маршрут" ,
 ///     "запланировать",
 ///     "в избранное"
-
 class SightDetailBottom extends StatelessWidget {
   final Sight sight;
 
