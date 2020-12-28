@@ -3,8 +3,8 @@ import 'package:places/domain/sight.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/screen/sight_detail/sight_detail_widget.dart';
 
-/// Bottom экрана SightDetail
-/// с заглушками копок :
+/// Bottom screen SightDetail
+/// с кнопками  :
 ///     "проложить маршрут" ,
 ///     "запланировать",
 ///     "в избранное"

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/widget/image_network.dart';
 
-/// Header sceen SightDetail
+/// Header screen SightDetail
 /// заглушка экрана для будующей галереи
 class SightDetailHeader extends StatelessWidget {
   final Sight sight;
