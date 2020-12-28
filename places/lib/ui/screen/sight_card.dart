@@ -3,10 +3,9 @@ import 'package:flutter/rendering.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/styles/text_styles.dart';
-import 'util/utils.dart';
+import 'package:places/ui/widget/image_network.dart';
 
 /// Экран карточки интересного места
-
 class SightCard extends StatelessWidget {
   final Sight sight;
 
@@ -29,14 +28,9 @@ class SightCard extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  //   color: Colors.amber,
                   width: double.infinity,
                   height: 96,
-                  child: Image.network(
-                    sight.url,
-                    fit: BoxFit.cover,
-                    loadingBuilder: buildImageProgressIndicator,
-                  ),
+                  child: ImageNetwork(imageUrl: sight.url),
                 ),
                 Positioned(
                   left: 16,
@@ -47,7 +41,6 @@ class SightCard extends StatelessWidget {
                   right: 16,
                   top: 16,
                   child: Container(
-                    // color: Colors.red,
                     width: 20,
                     height: 18,
                     child: Image.asset('res/icon/icon_heart.png'),

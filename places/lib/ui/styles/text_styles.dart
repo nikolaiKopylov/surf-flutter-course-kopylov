@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:places/ui/constants.dart';
 
 /// TextStyle используемые в проекте
-
 class AppTextStyles {
   static const TextStyle _textStyleRoboto = TextStyle(
     fontFamily: 'Roboto',

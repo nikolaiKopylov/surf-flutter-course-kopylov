@@ -4,8 +4,6 @@ import 'package:places/ui/styles/text_styles.dart';
 import '../constants.dart';
 
 /// Widget для отображения AppBar через наследника PreferredSizeWidget
-///
-
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
