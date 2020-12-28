@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/styles/text_styles.dart';
+import 'util/utils.dart';
 
 /// Экран карточки интересного места
 
@@ -34,21 +35,7 @@ class SightCard extends StatelessWidget {
                   child: Image.network(
                     sight.url,
                     fit: BoxFit.cover,
-                    loadingBuilder: (
-                      BuildContext context,
-                      Widget child,
-                      ImageChunkEvent loadingProgress,
-                    ) {
-                      if (loadingProgress == null) return child;
-                      return Center(
-                        child: CircularProgressIndicator(
-                          value: loadingProgress.expectedTotalBytes != null
-                              ? loadingProgress.cumulativeBytesLoaded /
-                                  loadingProgress.expectedTotalBytes
-                              : null,
-                        ),
-                      );
-                    },
+                    loadingBuilder: buildImageProgressIndicator,
                   ),
                 ),
                 Positioned(

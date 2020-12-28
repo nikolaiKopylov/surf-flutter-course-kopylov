@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/screen/util/utils.dart';
 
 /// Header экрана SightDetail
 /// заглушка экрана для будущей галереи
@@ -20,21 +21,7 @@ class SightDetailHeader extends StatelessWidget {
       child: Image.network(
         sight.url,
         fit: BoxFit.cover,
-        loadingBuilder: (
-          BuildContext context,
-          Widget child,
-          ImageChunkEvent loadingProgress,
-        ) {
-          if (loadingProgress == null) return child;
-          return Center(
-            child: CircularProgressIndicator(
-              value: loadingProgress.expectedTotalBytes != null
-                  ? loadingProgress.cumulativeBytesLoaded /
-                      loadingProgress.expectedTotalBytes
-                  : null,
-            ),
-          );
-        },
+        loadingBuilder: buildImageProgressIndicator,
       ),
     );
   }

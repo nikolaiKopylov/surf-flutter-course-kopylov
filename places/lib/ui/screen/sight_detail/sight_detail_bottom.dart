@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/screen/sight_detail/sight_detail_widget.dart';
-import 'package:places/ui/styles/text_styles.dart';
 
 /// Bottom экрана SightDetail
 /// с заглушками копок :
