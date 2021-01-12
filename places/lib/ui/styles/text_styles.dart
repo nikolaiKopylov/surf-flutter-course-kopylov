@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:places/ui/constants.dart';
 
 /// TextStyle используемые в проекте
-
 class AppTextStyles {
   static const TextStyle _textStyleRoboto = TextStyle(
     fontFamily: 'Roboto',
@@ -47,6 +46,11 @@ class AppTextStyles {
 
   static TextStyle textStyleDetailGrey = _textStyleRoboto.copyWith(
     color: AppColors.grey2,
+    fontSize: 14,
+  );
+
+  static TextStyle textStyleDetailWhite = _textStyleRoboto.copyWith(
+    color: AppColors.white,
     fontSize: 14,
   );
 }

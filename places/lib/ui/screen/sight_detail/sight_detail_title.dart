@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/mocks.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/styles/text_styles.dart';
 
 /// Title для текста на экране SightDetail
-
 class SightDetailTitle extends StatelessWidget {
   final Sight sight;
 
@@ -24,7 +22,7 @@ class SightDetailTitle extends StatelessWidget {
         Container(
           width: double.infinity,
           child: Text(
-            mocks[0].name,
+            sight.name,
             style: AppTextStyles.textStyleDetailTitle,
           ),
         ),
@@ -37,7 +35,7 @@ class SightDetailTitle extends StatelessWidget {
                   right: 16,
                 ),
                 child: Text(
-                  mocks[0].type,
+                  sight.type,
                   style: AppTextStyles.textStyleSightCardBottomUp,
                 ),
               ),

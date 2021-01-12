@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 /// Содержит константы цветов используемые в проекте ,
 ///  кроме цветов временных заглушек
-
 class AppColors {
   static const black = Color(0xFF3B3E5B);
   static const green = Color(0xFF4CAF50);
@@ -14,11 +13,8 @@ class AppColors {
 }
 
 /// Содержит константы текста используемые в проекте
-
 class AppTexts {
   static const appHeader = "Список \nинтересных мест";
-  static const sightCardText = 'Воронежский областной краеведческий музей';
-  static const sightCardType = 'музей';
   static const createRoute = 'ПОСТРОИТЬ МАРШРУТ';
   static const addPlan = 'Запланировать';
   static const toFavorites = 'В Избранное';

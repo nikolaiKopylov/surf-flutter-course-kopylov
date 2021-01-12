@@ -22,7 +22,9 @@ class SightDetail extends StatelessWidget {
       backgroundColor: AppColors.white,
       body: Column(
         children: [
-          SightDetailHeader(),
+          SightDetailHeader(
+            sight: sight,
+          ),
           Padding(
             padding: EdgeInsets.only(
               top: 24,
@@ -34,12 +36,18 @@ class SightDetail extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SightDetailTitle(),
-                SightDetailText(),
+                SightDetailTitle(
+                  sight: sight,
+                ),
+                SightDetailText(
+                  sight: sight,
+                ),
               ],
             ),
           ),
-          SightDetailBottom(),
+          SightDetailBottom(
+            sight: sight,
+          ),
         ],
       ),
     );

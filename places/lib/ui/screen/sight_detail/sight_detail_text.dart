@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/mocks.dart';
 import 'package:places/ui/styles/text_styles.dart';
 
 /// Текст экрана SightDetail
-
 class SightDetailText extends StatelessWidget {
   final Sight sight;
 
@@ -21,7 +19,7 @@ class SightDetailText extends StatelessWidget {
         bottom: 16,
       ),
       child: Text(
-        mocks[0].details,
+        sight.details,
         style: AppTextStyles.textStyleDetailText,
       ),
     );
