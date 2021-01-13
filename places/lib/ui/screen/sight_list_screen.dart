@@ -3,8 +3,7 @@ import 'package:places/ui/screen/sight_card.dart';
 import 'package:places/ui/widget/custom_app_bar.dart';
 import '../../mocks.dart';
 
-/// Экран отображени списка интересных мест
-
+/// Экран отображения списка интересных мест
 class SightListScreen extends StatefulWidget {
   @override
   _SightListScreenState createState() => _SightListScreenState();
