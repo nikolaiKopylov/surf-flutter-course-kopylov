@@ -10,6 +10,7 @@ class AppColors {
   static const grey2 = Colors.grey;
   static const greyDriver = Color(0x8F7C7E92);
   static const white = Color(0xFFFFFFFF);
+  static const blackButton = Color(0x3B3E5B);
 }
 
 /// Содержит константы текста используемые в проекте
@@ -20,4 +21,9 @@ class AppTexts {
   static const toFavorites = 'В Избранное';
   static const shortDescription = 'краткое описаниe ';
   static const workTime = 'закрыто до 9:00';
+  static const visited = 'Посетил';
+  static const wantVisit = 'Хочу посетить';
+  static const favorites = 'Избранное';
+  static const wantVisitTime = 'Запланировано на 12 окт. 2020';
+  static const visitedTime = 'Цель достигнута 12 окт. 2020';
 }

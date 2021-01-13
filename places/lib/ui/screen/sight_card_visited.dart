@@ -5,7 +5,7 @@ import 'package:places/ui/constants.dart';
 import 'package:places/ui/styles/text_styles.dart';
 import 'package:places/ui/widget/image_network.dart';
 
-/// Экран карточки интересного места
+///SightCardVisited - Экран карточки посещенного места
 class SightCardVisited extends StatelessWidget {
   final Sight sight;
 

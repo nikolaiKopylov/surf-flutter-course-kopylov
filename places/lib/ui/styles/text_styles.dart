@@ -53,4 +53,9 @@ class AppTextStyles {
     color: AppColors.white,
     fontSize: 14,
   );
+
+  static TextStyle textStyleWantVisitTime = _textStyleRoboto.copyWith(
+    color: AppColors.green,
+    fontSize: 14,
+  );
 }

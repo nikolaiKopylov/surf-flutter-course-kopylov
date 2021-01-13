@@ -5,7 +5,7 @@ import 'package:places/ui/constants.dart';
 import 'package:places/ui/styles/text_styles.dart';
 import 'package:places/ui/widget/image_network.dart';
 
-/// Экран карточки места посещение которого запланнировано
+/// SightCardWantVisit - Экран карточки места, посещение которого запланнировано
 class SightCardWantVisit extends StatelessWidget {
   final Sight sight;
 
