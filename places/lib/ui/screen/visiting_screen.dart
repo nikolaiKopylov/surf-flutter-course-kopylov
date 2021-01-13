@@ -6,6 +6,7 @@ import '../../mocks.dart';
 import 'sight_card_visited.dart';
 import 'sight_card_want_visit.dart';
 
+// VisitingScreen - экран "Хочу посетить / Посещенные места"
 class VisitingScreen extends StatefulWidget {
   @override
   _VisitingScreenState createState() => _VisitingScreenState();
