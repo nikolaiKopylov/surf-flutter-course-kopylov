@@ -5,6 +5,7 @@ import 'package:places/ui/styles/text_styles.dart';
 import '../../mocks.dart';
 import 'sight_card_visited.dart';
 import 'sight_card_want_visit.dart';
+import 'package:places/ui/widget/bottom_navigation_view.dart';
 
 // VisitingScreen - экран "Хочу посетить / Посещенные места"
 class VisitingScreen extends StatefulWidget {
@@ -72,6 +73,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
             ),
           ],
         ),
+        bottomNavigationBar: BottomNavigationView(),
       ),
     );
   }

@@ -83,7 +83,7 @@ class SightCardVisited extends StatelessWidget {
                   Container(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      AppTexts.wantVisitTime,
+                      AppTexts.visitedTime,
                       style: AppTextStyles.textStyleDetailGrey,
                     ),
                   ),

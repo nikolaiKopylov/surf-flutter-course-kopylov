@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:places/ui/screen/sight_card.dart';
 import 'package:places/ui/widget/custom_app_bar.dart';
 import '../../mocks.dart';
+import 'package:places/ui/widget/bottom_navigation_view.dart';
 
 /// Экран отображения списка интересных мест
 class SightListScreen extends StatefulWidget {
@@ -23,6 +24,7 @@ class _SightListScreenState extends State<SightListScreen> {
               .toList(),
         ),
       ),
+      bottomNavigationBar: BottomNavigationView(),
     );
   }
 }
