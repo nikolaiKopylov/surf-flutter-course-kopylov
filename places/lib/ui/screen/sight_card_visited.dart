@@ -47,7 +47,10 @@ class SightCardVisited extends StatelessWidget {
                 Positioned(
                   left: 16,
                   top: 16,
-                  child: Text(sight.type),
+                  child: Text(
+                    sight.type,
+                    style: AppTextStyles.textStyleDetailWhite,
+                  ),
                 ),
                 Positioned(
                   right: 16,
@@ -81,7 +84,7 @@ class SightCardVisited extends StatelessWidget {
                     bottomRight: Radius.circular(16.0)),
                 color: AppColors.greyBackground,
               ),
-              height: 92,
+              height: 122,
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,6 +104,12 @@ class SightCardVisited extends StatelessWidget {
                     ),
                   ),
                   Container(
+                    padding: EdgeInsets.only(
+                      top: 2.0,
+                      bottom: 2.0,
+                    ),
+                    height: 28.0,
+                    width: 296,
                     alignment: Alignment.topLeft,
                     child: Text(
                       AppTexts.visitedTime,

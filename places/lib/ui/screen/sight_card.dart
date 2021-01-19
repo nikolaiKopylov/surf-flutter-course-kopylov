@@ -17,7 +17,7 @@ class SightCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 3.0 / 1.6,
+      aspectRatio: 3.0 / 2.0,
       child: Padding(
         padding: EdgeInsets.only(
           left: 16,
@@ -47,7 +47,10 @@ class SightCard extends StatelessWidget {
                 Positioned(
                   left: 16,
                   top: 16,
-                  child: Text(sight.type),
+                  child: Text(
+                    sight.type,
+                    style: AppTextStyles.textStyleDetailWhite,
+                  ),
                 ),
                 Positioned(
                   right: 16,
@@ -55,7 +58,7 @@ class SightCard extends StatelessWidget {
                   child: Container(
                     width: 20,
                     height: 18,
-                    child: Image.asset('res/icon/icon_heart.png'),
+                    child: Image.asset(AppIcons.iconHeart),
                   ),
                 ),
               ],
