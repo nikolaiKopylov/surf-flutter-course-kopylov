@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/styles/text_styles.dart';
+import 'package:places/ui/widget/custom_tab_bar.dart';
 
 import '../../mocks.dart';
 import 'sight_card_visited.dart';
@@ -23,6 +24,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
       initialIndex: 0,
       child: Scaffold(
         appBar: AppBar(
+          elevation: 0.0,
           toolbarHeight: 108.0,
           centerTitle: true,
           title: Text(
@@ -30,27 +32,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
             style: AppTextStyles.textStyleDetailTitle,
           ),
           backgroundColor: AppColors.greyBackground,
-          bottom: TabBar(
-            indicatorPadding: EdgeInsets.symmetric(horizontal: 16.0),
-            unselectedLabelColor: AppColors.grey2,
-            labelColor: AppColors.white,
-            indicator: BoxDecoration(
-              borderRadius: BorderRadius.circular(40),
-              color: AppColors.black,
-            ),
-            tabs: [
-              Tab(
-                child: Text(
-                  AppTexts.wantVisit,
-                ),
-              ),
-              Tab(
-                child: Text(
-                  AppTexts.visited,
-                ),
-              ),
-            ],
-          ),
+          bottom: CustomTabBar(),
         ),
         body: TabBarView(
           children: [
