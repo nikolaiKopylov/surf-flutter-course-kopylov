@@ -15,7 +15,7 @@ class SightDetailButtonToFavorites extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton.icon(
-      icon: Image.asset('res/icon/icon_heart_dark.png'),
+      icon: Image.asset(AppIcons.iconHeartDark),
       label: Text(
         AppTexts.toFavorites,
         style: AppTextStyles.textStyleDetailText,

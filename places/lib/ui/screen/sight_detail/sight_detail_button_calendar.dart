@@ -15,7 +15,7 @@ class SightDetailButtonCalendar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton.icon(
-      icon: Image.asset('res/icon/icon_calendar.png'),
+      icon: Image.asset(AppIcons.iconCalendar),
       label: Text(
         AppTexts.addPlan,
         style: AppTextStyles.textStyleDetailGrey,

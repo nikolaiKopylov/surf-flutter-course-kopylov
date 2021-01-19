@@ -15,7 +15,7 @@ class SightDetailButtonGo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton.icon(
-      icon: Image.asset('res/icon/icon_go.png'),
+      icon: Image.asset(AppIcons.iconGo),
       label: Text(
         AppTexts.createRoute,
         style: AppTextStyles.textStyleDetailWhite,
