@@ -39,3 +39,13 @@ class AppIcons {
   static const iconMap = 'res/icon/icon_map.png';
   static const iconList = 'res/icon/icon_list.png';
 }
+
+class AppDecorations {
+  static const tabBarBackground = BoxDecoration(
+    borderRadius: BorderRadius.all(
+      Radius.circular(
+        40.0,
+      ),
+    ),
+  );
+}
