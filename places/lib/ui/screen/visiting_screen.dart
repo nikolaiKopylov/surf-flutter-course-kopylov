@@ -31,6 +31,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
           ),
           backgroundColor: AppColors.greyBackground,
           bottom: TabBar(
+            indicatorPadding: EdgeInsets.symmetric(horizontal: 16.0),
             unselectedLabelColor: AppColors.grey2,
             labelColor: AppColors.white,
             indicator: BoxDecoration(

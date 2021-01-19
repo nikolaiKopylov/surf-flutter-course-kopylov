@@ -3,7 +3,8 @@ import 'package:flutter/rendering.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/styles/text_styles.dart';
-import 'package:places/ui/widget/image_network.dart';
+
+import 'util/utils.dart';
 
 ///SightCardVisited - Экран карточки посещенного места
 class SightCardVisited extends StatelessWidget {
@@ -30,7 +31,18 @@ class SightCardVisited extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   height: 96,
-                  child: ImageNetwork(imageUrl: sight.url),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(16.0),
+                        topRight: Radius.circular(16.0)),
+                    image: DecorationImage(
+                      image: Image.network(
+                        sight.url,
+                        loadingBuilder: buildImageProgressIndicator,
+                      ).image,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
                 Positioned(
                   left: 16,
@@ -43,7 +55,7 @@ class SightCardVisited extends StatelessWidget {
                   child: Container(
                     width: 20,
                     height: 18,
-                    child: Image.asset('res/icon/icon_close.png'),
+                    child: Image.asset(AppIcons.iconClose),
                   ),
                 ),
                 Positioned(
@@ -52,7 +64,7 @@ class SightCardVisited extends StatelessWidget {
                   child: Container(
                     width: 20,
                     height: 18,
-                    child: Image.asset('res/icon/icon_share.png'),
+                    child: Image.asset(AppIcons.iconShare),
                   ),
                 ),
               ],
@@ -63,9 +75,14 @@ class SightCardVisited extends StatelessWidget {
                 left: 16,
                 bottom: 16,
               ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(16.0),
+                    bottomRight: Radius.circular(16.0)),
+                color: AppColors.greyBackground,
+              ),
               height: 92,
               width: double.infinity,
-              color: AppColors.greyBackground,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -73,7 +90,10 @@ class SightCardVisited extends StatelessWidget {
                     height: 16,
                   ),
                   ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 160, maxHeight: 62),
+                    constraints: BoxConstraints(
+                      maxWidth: 160,
+                      maxHeight: 62,
+                    ),
                     child: Text(
                       sight.name,
                       style: AppTextStyles.textStyleSightCardBottomUp,
