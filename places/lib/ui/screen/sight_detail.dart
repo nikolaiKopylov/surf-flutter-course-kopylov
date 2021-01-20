@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/mocks.dart';
 import 'package:places/ui/constants.dart';
-import 'package:places/ui/styles/text_styles.dart';
 import 'sight_detail/sight_detail_widget.dart';
 
 /// Экран детализации интересного места , отображает подробную
 /// информацию из картотеки
-
 class SightDetail extends StatelessWidget {
   final Sight sight;
 
