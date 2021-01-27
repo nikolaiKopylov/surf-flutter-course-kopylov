@@ -12,7 +12,7 @@ final lightTheme = ThemeData(
   dividerColor: AppColorsLight.secondary2,
   buttonColor: AppColorsLight.green,
   appBarTheme: AppBarTheme(
-      color: AppColorsLight.background,
+      color: AppColorsLight.white,
       textTheme: TextTheme(
         headline2: AppTextStyles.subTitle.copyWith(
           color: AppColorsLight.white,
