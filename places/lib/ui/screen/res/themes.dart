@@ -78,7 +78,7 @@ final darkTheme = ThemeData(
   dividerColor: AppColorsDark.secondary2,
   buttonColor: AppColorsDark.green,
   appBarTheme: AppBarTheme(
-      color: AppColorsDark.background,
+      color: AppColorsDark.main,
       textTheme: TextTheme(
         headline2: AppTextStyles.subTitle.copyWith(
           color: AppColorsDark.white,
