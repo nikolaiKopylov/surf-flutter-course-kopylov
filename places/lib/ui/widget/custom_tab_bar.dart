@@ -17,15 +17,14 @@ class CustomTabBar extends PreferredSize {
         ),
         child: Container(
           decoration: AppDecorations.tabBarBackground.copyWith(
-            color: AppColors.greyBackground,
+            color: Theme.of(context).backgroundColor,
           ),
           child: TabBar(
-            // indicatorPadding: EdgeInsets.symmetric(horizontal: 16.0),
-            unselectedLabelColor: AppColors.grey2,
-            labelColor: AppColors.white,
-            indicator: AppDecorations.tabBarBackground.copyWith(
-              color: AppColors.black,
-            ),
+            // unselectedLabelColor: AppColorsLight.secondary2,
+            // labelColor: AppColorsLight.white,
+            // indicator: AppDecorations.tabBarBackground.copyWith(
+            //   color: AppColorsLight.main,
+            // ),
             tabs: [
               Tab(
                 child: Text(
