@@ -48,7 +48,7 @@ final lightTheme = ThemeData(
       color: AppColorsLight.secondary,
     ),
     bodyText2: AppTextStyles.small.copyWith(
-      color: AppColorsLight.secondary,
+      color: AppColorsLight.secondary2,
     ),
     headline3: AppTextStyles.small.copyWith(
       color: AppColorsLight.green,
