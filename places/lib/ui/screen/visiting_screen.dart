@@ -29,9 +29,9 @@ class _VisitingScreenState extends State<VisitingScreen> {
           centerTitle: true,
           title: Text(
             AppTexts.favorites,
-            style: AppTextStyles.textStyleDetailTitle,
+            //style: AppTextStyles.textStyleDetailTitle,
           ),
-          backgroundColor: AppColors.greyBackground,
+          //  backgroundColor: AppColorsLight.background,
           bottom: CustomTabBar(),
         ),
         body: TabBarView(
