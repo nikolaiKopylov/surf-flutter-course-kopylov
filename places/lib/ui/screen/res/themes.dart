@@ -39,7 +39,7 @@ final lightTheme = ThemeData(
       color: AppColorsLight.secondary,
     ),
     subtitle1: AppTextStyles.title.copyWith(
-      color: AppColorsDark.secondary,
+      color: AppColorsLight.secondary,
     ),
     subtitle2: AppTextStyles.text.copyWith(
       color: AppColorsLight.secondary,
