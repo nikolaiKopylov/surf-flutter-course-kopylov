@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/styles/text_styles.dart';
 
+/// lightTheme - светлая тема для приложения
 final lightTheme = ThemeData(
   brightness: Brightness.light,
   primaryColor: AppColorsLight.white,
@@ -67,6 +68,7 @@ final lightTheme = ThemeData(
   ),
 );
 
+// darkTheme - темная тема для приложения
 final darkTheme = ThemeData(
   brightness: Brightness.light,
   primaryColor: AppColorsDark.main,
