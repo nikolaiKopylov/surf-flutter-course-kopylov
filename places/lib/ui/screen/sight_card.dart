@@ -68,7 +68,7 @@ class SightCard extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(16.0),
                     bottomRight: Radius.circular(16.0)),
-                color: AppColors.greyBackground,
+                color: Theme.of(context).backgroundColor,
               ),
               padding: EdgeInsets.only(
                 right: 16,
@@ -88,7 +88,7 @@ class SightCard extends StatelessWidget {
                     constraints: BoxConstraints(maxWidth: 151, maxHeight: 62),
                     child: Text(
                       sight.name,
-                      style: AppTextStyles.textStyleSightCardBottomUp,
+                      style: Theme.of(context).textTheme.subtitle2,
                       textAlign: TextAlign.left,
                     ),
                   ),
@@ -96,7 +96,8 @@ class SightCard extends StatelessWidget {
                     alignment: Alignment.topLeft,
                     child: Text(
                       AppTexts.workTime,
-                      style: AppTextStyles.textStyleSightCardBottomDown,
+                      style: Theme.of(context).textTheme.bodyText2,
+                      textAlign: TextAlign.left,
                     ),
                   ),
                 ],
