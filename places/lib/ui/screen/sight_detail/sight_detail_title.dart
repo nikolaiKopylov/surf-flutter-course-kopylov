@@ -23,7 +23,7 @@ class SightDetailTitle extends StatelessWidget {
           width: double.infinity,
           child: Text(
             sight.name,
-            style: AppTextStyles.textStyleDetailTitle,
+            style: Theme.of(context).textTheme.subtitle1,
           ),
         ),
         Container(
@@ -36,13 +36,13 @@ class SightDetailTitle extends StatelessWidget {
                 ),
                 child: Text(
                   sight.type,
-                  style: AppTextStyles.textStyleSightCardBottomUp,
+                  style: Theme.of(context).textTheme.bodyText2,
                 ),
               ),
               Container(
                 child: Text(
                   AppTexts.workTime,
-                  style: AppTextStyles.textStyleDetailGrey,
+                  style: Theme.of(context).textTheme.headline4,
                 ),
               )
             ],

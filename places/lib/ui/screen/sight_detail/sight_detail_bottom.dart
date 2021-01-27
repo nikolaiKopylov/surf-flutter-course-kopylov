@@ -28,7 +28,7 @@ class SightDetailBottom extends StatelessWidget {
             right: 16.0,
           ),
           child: Divider(
-            color: AppColors.greyDriver,
+            // color: AppColorsLight.inactiveBlack,
             height: 0.0,
           ),
         ),

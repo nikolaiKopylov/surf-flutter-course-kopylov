@@ -23,7 +23,6 @@ class _SightListScreenState extends State<SightListScreen> {
                   ))
               .toList(),
         ),
-
       ),
       bottomNavigationBar: BottomNavigationView(),
     );

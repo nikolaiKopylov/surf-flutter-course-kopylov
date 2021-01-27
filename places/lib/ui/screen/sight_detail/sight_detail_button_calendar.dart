@@ -18,7 +18,7 @@ class SightDetailButtonCalendar extends StatelessWidget {
       icon: Image.asset(AppIcons.iconCalendar),
       label: Text(
         AppTexts.addPlan,
-        style: AppTextStyles.textStyleDetailGrey,
+        style: Theme.of(context).textTheme.headline5,
       ),
       minWidth: 164.0,
       height: 40.0,

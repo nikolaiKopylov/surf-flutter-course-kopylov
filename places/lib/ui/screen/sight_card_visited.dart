@@ -82,7 +82,7 @@ class SightCardVisited extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(16.0),
                     bottomRight: Radius.circular(16.0)),
-                color: AppColors.greyBackground,
+                color: Theme.of(context).backgroundColor,
               ),
               height: 122,
               width: double.infinity,
@@ -99,7 +99,7 @@ class SightCardVisited extends StatelessWidget {
                     ),
                     child: Text(
                       sight.name,
-                      style: AppTextStyles.textStyleSightCardBottomUp,
+                      style: Theme.of(context).textTheme.subtitle2,
                       textAlign: TextAlign.left,
                     ),
                   ),
@@ -113,14 +113,14 @@ class SightCardVisited extends StatelessWidget {
                     alignment: Alignment.topLeft,
                     child: Text(
                       AppTexts.visitedTime,
-                      style: AppTextStyles.textStyleDetailGrey,
+                      style: Theme.of(context).textTheme.bodyText2,
                     ),
                   ),
                   Container(
                     alignment: Alignment.topLeft,
                     child: Text(
                       AppTexts.workTime,
-                      style: AppTextStyles.textStyleSightCardBottomDown,
+                      style: Theme.of(context).textTheme.bodyText2,
                     ),
                   ),
                 ],
