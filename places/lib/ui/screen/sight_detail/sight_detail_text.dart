@@ -20,7 +20,7 @@ class SightDetailText extends StatelessWidget {
       ),
       child: Text(
         sight.details,
-        style: AppTextStyles.textStyleDetailText,
+        style: Theme.of(context).textTheme.headline5,
       ),
     );
   }

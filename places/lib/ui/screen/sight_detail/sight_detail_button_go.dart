@@ -18,11 +18,11 @@ class SightDetailButtonGo extends StatelessWidget {
       icon: Image.asset(AppIcons.iconGo),
       label: Text(
         AppTexts.createRoute,
-        style: AppTextStyles.textStyleDetailWhite,
+        style: Theme.of(context).textTheme.button,
       ),
       minWidth: 328.0,
       height: 48.0,
-      color: AppColors.green,
+      color: Theme.of(context).buttonColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),

@@ -18,7 +18,7 @@ class SightDetailButtonToFavorites extends StatelessWidget {
       icon: Image.asset(AppIcons.iconHeartDark),
       label: Text(
         AppTexts.toFavorites,
-        style: AppTextStyles.textStyleDetailText,
+        style: Theme.of(context).textTheme.headline5,
       ),
       minWidth: 164.0,
       height: 40.0,
