@@ -57,7 +57,7 @@ final lightTheme = ThemeData(
       color: AppColorsLight.secondary2,
     ),
     headline5: AppTextStyles.small.copyWith(
-      color: AppColorsLight.inactiveBlack,
+      color: AppColorsLight.secondary,
     ),
     overline: AppTextStyles.superSmall.copyWith(
       color: AppColorsLight.secondary,
