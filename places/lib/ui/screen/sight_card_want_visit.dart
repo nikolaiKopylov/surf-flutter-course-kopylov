@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/constants.dart';
-import 'package:places/ui/styles/text_styles.dart';
-import 'package:places/ui/widget/image_network.dart';
 
-import 'util/utils.dart';
+import 'sight_card_want_visit/sight_card_want_visit_widget.dart';
 
 /// SightCardWantVisit - Экран карточки места, посещение которого запланнировано
 class SightCardWantVisit extends StatelessWidget {
@@ -27,107 +25,11 @@ class SightCardWantVisit extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Stack(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 96,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(16.0),
-                        topRight: Radius.circular(16.0)),
-                    image: DecorationImage(
-                      image: Image.network(
-                        sight.url,
-                        loadingBuilder: buildImageProgressIndicator,
-                      ).image,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 16,
-                  top: 16,
-                  child: Text(
-                    sight.type,
-                    style: AppTextStyles.textStyleDetailWhite,
-                  ),
-                ),
-                Positioned(
-                  right: 16,
-                  top: 16,
-                  child: Container(
-                    width: 20,
-                    height: 18,
-                    child: Image.asset(AppIcons.iconClose),
-                  ),
-                ),
-                Positioned(
-                  right: 56,
-                  top: 16,
-                  child: Container(
-                    width: 20,
-                    height: 18,
-                    child: Image.asset(AppIcons.iconCalendarWhite),
-                  ),
-                ),
-              ],
+            SightCardWantVisitHeader(
+              sight: sight,
             ),
-            Container(
-              padding: EdgeInsets.only(
-                right: 16,
-                left: 16,
-                bottom: 16,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(16.0),
-                    bottomRight: Radius.circular(16.0)),
-                color: Theme.of(context).backgroundColor,
-              ),
-              height: 102,
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 16,
-                  ),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                      maxWidth: 160,
-                      maxHeight: 62,
-                    ),
-                    child: Text(
-                      sight.name,
-                      style: Theme.of(context).textTheme.subtitle2,
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    height: 28.0,
-                    width: 296.0,
-                    padding: EdgeInsets.only(
-                      top: 2.0,
-                      bottom: 2.0,
-                    ),
-                    child: Text(
-                      AppTexts.wantVisitTime,
-                      style: Theme.of(context).textTheme.headline3,
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    height: 18.0,
-                    width: 296.0,
-                    child: Text(
-                      AppTexts.workTime,
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                  ),
-                ],
-              ),
+            SightCardWantVisitBody(
+              sight: sight,
             ),
           ],
         ),

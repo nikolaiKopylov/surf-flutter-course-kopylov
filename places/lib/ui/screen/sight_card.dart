@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/ui/constants.dart';
-import 'package:places/ui/screen/util/utils.dart';
-import 'package:places/ui/styles/text_styles.dart';
-import 'package:places/ui/widget/image_network.dart';
+import 'sight_card/sight_card_widget.dart';
 
 /// Экран карточки интересного места
 class SightCard extends StatelessWidget {
@@ -26,83 +23,12 @@ class SightCard extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Stack(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 96,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(16.0),
-                        topRight: Radius.circular(16.0)),
-                    image: DecorationImage(
-                      image: Image.network(
-                        sight.url,
-                        loadingBuilder: buildImageProgressIndicator,
-                      ).image,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 16,
-                  top: 16,
-                  child: Text(
-                    sight.type,
-                    style: AppTextStyles.textStyleDetailWhite,
-                  ),
-                ),
-                Positioned(
-                  right: 16,
-                  top: 16,
-                  child: Container(
-                    width: 20,
-                    height: 18,
-                    child: Image.asset(AppIcons.iconHeart),
-                  ),
-                ),
-              ],
+            SightCardHeader(
+              sight: sight,
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(16.0),
-                    bottomRight: Radius.circular(16.0)),
-                color: Theme.of(context).backgroundColor,
-              ),
-              padding: EdgeInsets.only(
-                right: 16,
-                left: 16,
-                bottom: 16,
-              ),
-              height: 92,
-              width: double.infinity,
-              //  color: AppColors.grey2, //Background,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 16,
-                  ),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 151, maxHeight: 62),
-                    child: Text(
-                      sight.name,
-                      style: Theme.of(context).textTheme.subtitle2,
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      AppTexts.workTime,
-                      style: Theme.of(context).textTheme.bodyText2,
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            SightCardBody(
+              sight: sight,
+            )
           ],
         ),
       ),
