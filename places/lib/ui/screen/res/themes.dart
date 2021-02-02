@@ -65,6 +65,9 @@ final lightTheme = ThemeData(
     button: AppTextStyles.button.copyWith(
       color: AppColorsLight.white,
     ),
+    caption: AppTextStyles.smallBold.copyWith(
+      color: AppColorsLight.white,
+    ),
   ),
 );
 
@@ -129,6 +132,9 @@ final darkTheme = ThemeData(
       color: AppColorsDark.white,
     ),
     button: AppTextStyles.button.copyWith(
+      color: AppColorsDark.white,
+    ),
+    caption: AppTextStyles.smallBold.copyWith(
       color: AppColorsDark.white,
     ),
   ),
