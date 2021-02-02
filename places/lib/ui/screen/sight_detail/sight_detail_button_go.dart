@@ -26,7 +26,9 @@ class SightDetailButtonGo extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-      onPressed: () {},
+      onPressed: () {
+        print('SightDetail - press ButtonGo');
+      },
     );
   }
 }

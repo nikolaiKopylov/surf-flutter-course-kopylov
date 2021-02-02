@@ -22,7 +22,9 @@ class SightDetailButtonToFavorites extends StatelessWidget {
       ),
       minWidth: 164.0,
       height: 40.0,
-      onPressed: () {},
+      onPressed: () {
+        print('SightDetail - press ButtonToFavorites');
+      },
     );
   }
 }
