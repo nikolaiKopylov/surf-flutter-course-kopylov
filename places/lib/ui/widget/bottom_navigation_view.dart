@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:places/ui/constants.dart';
 
 // Меню BottomNavigationView для навигации в приложении
@@ -9,13 +10,28 @@ class BottomNavigationView extends StatelessWidget {
       child: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        unselectedIconTheme:
+            Theme.of(context).bottomNavigationBarTheme.unselectedIconTheme,
+        type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-            icon: Image.asset(AppIcons.iconList),
+            icon: SvgPicture.asset(
+              AppIcons.iconList,
+              color: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .unselectedIconTheme
+                  .color,
+            ),
             title: Text('list'),
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(AppIcons.iconHeartDark),
+            icon: SvgPicture.asset(
+              AppIcons.iconHeart,
+              color: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .unselectedIconTheme
+                  .color,
+            ),
             title: Text('favorite'),
           ),
         ],
