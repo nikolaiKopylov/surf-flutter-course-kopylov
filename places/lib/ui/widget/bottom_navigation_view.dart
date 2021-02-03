@@ -4,6 +4,7 @@ import 'package:places/ui/constants.dart';
 
 // Меню BottomNavigationView для навигации в приложении
 class BottomNavigationView extends StatelessWidget {
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,6 +14,10 @@ class BottomNavigationView extends StatelessWidget {
         unselectedIconTheme:
             Theme.of(context).bottomNavigationBarTheme.unselectedIconTheme,
         type: BottomNavigationBarType.fixed,
+        onTap: (_currentIndex) {
+          print('press BottomNavigationBarItem index = $_currentIndex');
+        },
+        currentIndex: currentIndex,
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
