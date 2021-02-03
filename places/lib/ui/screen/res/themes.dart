@@ -11,6 +11,7 @@ final lightTheme = ThemeData(
   scaffoldBackgroundColor: AppColorsLight.white,
   dividerColor: AppColorsLight.secondary2,
   buttonColor: AppColorsLight.green,
+  iconTheme: IconThemeData(color: AppColorsLight.secondary),
   appBarTheme: AppBarTheme(
       color: AppColorsLight.white,
       textTheme: TextTheme(
@@ -20,7 +21,11 @@ final lightTheme = ThemeData(
       )),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     backgroundColor: AppColorsLight.white,
-    unselectedItemColor: AppColorsLight.white,
+    unselectedItemColor: AppColorsLight.secondary,
+    selectedItemColor: AppColorsLight.secondary,
+    unselectedIconTheme: IconThemeData(
+      color: AppColorsLight.secondary,
+    ),
   ),
   tabBarTheme: TabBarTheme(
     unselectedLabelColor: AppColorsLight.secondary2,
@@ -80,6 +85,7 @@ final darkTheme = ThemeData(
   scaffoldBackgroundColor: AppColorsDark.main,
   dividerColor: AppColorsDark.secondary2,
   buttonColor: AppColorsDark.green,
+  iconTheme: IconThemeData(color: AppColorsDark.white),
   appBarTheme: AppBarTheme(
       color: AppColorsDark.main,
       textTheme: TextTheme(
@@ -90,6 +96,9 @@ final darkTheme = ThemeData(
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     backgroundColor: AppColorsDark.main,
     unselectedItemColor: AppColorsDark.white,
+    unselectedIconTheme: IconThemeData(
+      color: AppColorsLight.white,
+    ),
   ),
   tabBarTheme: TabBarTheme(
     unselectedLabelColor: AppColorsDark.secondary2,

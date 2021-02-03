@@ -47,15 +47,13 @@ class AppTexts {
 }
 
 class AppIcons {
-  static const iconShare = 'res/icon/icon_share.png';
-  static const iconClose = 'res/icon/icon_close.png';
-  static const iconCalendarWhite = 'res/icon/icon_calendar_white.png';
-  static const iconCalendar = 'res/icon/icon_calendar.png';
-  static const iconGo = 'res/icon/icon_go.png';
-  static const iconHeart = 'res/icon/icon_heart.png';
-  static const iconHeartDark = 'res/icon/icon_heart_dark.png';
-  static const iconMap = 'res/icon/icon_map.png';
-  static const iconList = 'res/icon/icon_list.png';
+  static const iconShare = 'res/icon/icon_share.svg';
+  static const iconClose = 'res/icon/icon_close.svg';
+  static const iconCalendar = 'res/icon/icon_calendar.svg';
+  static const iconGo = 'res/icon/icon_go.svg';
+  static const iconHeart = 'res/icon/icon_heart.svg';
+  static const iconMap = 'res/icon/icon_map.svg';
+  static const iconList = 'res/icon/icon_list.svg';
 }
 
 class AppDecorations {
