@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constants.dart';
 
@@ -11,7 +12,9 @@ class SightCardVisitedShareButton extends StatelessWidget {
       onPressed: () {
         print('SightCardVisited - press Share button ');
       },
-      icon: Image.asset(AppIcons.iconShare),
+      icon: SvgPicture.asset(
+        AppIcons.iconShare,
+      ),
       visualDensity: VisualDensity.compact,
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constants.dart';
 
@@ -11,7 +12,9 @@ class SightCardFavoriteButton extends StatelessWidget {
       onPressed: () {
         print('SightCard - press favorte button ');
       },
-      icon: Image.asset(AppIcons.iconHeart),
+      icon: SvgPicture.asset(
+        AppIcons.iconHeart,
+      ),
       visualDensity: VisualDensity.compact,
     );
   }

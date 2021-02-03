@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/styles/text_styles.dart';
 import '../../constants.dart';
@@ -15,7 +16,10 @@ class SightDetailButtonCalendar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton.icon(
-      icon: Image.asset(AppIcons.iconCalendar),
+      icon: SvgPicture.asset(
+        AppIcons.iconCalendar,
+        color: Theme.of(context).iconTheme.color,
+      ),
       label: Text(
         AppTexts.addPlan,
         style: Theme.of(context).textTheme.headline5,

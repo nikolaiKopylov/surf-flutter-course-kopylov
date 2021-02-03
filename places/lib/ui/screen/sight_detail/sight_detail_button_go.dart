@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/styles/text_styles.dart';
 import '../../constants.dart';
@@ -15,7 +16,7 @@ class SightDetailButtonGo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton.icon(
-      icon: Image.asset(AppIcons.iconGo),
+      icon: SvgPicture.asset(AppIcons.iconGo),
       label: Text(
         AppTexts.createRoute,
         style: Theme.of(context).textTheme.button,

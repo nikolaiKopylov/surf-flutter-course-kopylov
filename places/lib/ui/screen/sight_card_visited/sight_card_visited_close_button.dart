@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constants.dart';
 
@@ -11,7 +12,9 @@ class SightCardVisitedCloseButton extends StatelessWidget {
       onPressed: () {
         print('SightCardVisited - press Close button ');
       },
-      icon: Image.asset(AppIcons.iconClose),
+      icon: SvgPicture.asset(
+        AppIcons.iconClose,
+      ),
       visualDensity: VisualDensity.compact,
     );
   }
