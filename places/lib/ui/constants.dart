@@ -44,6 +44,8 @@ class AppTexts {
   static const favorites = 'Избранное';
   static const wantVisitTime = 'Запланировано на 12 окт. 2020';
   static const visitedTime = 'Цель достигнута 12 окт. 2020';
+  static const sliderTitle = 'Расстояние';
+  static const sliderRadius = 'от %s до %s';
 }
 
 class AppIcons {

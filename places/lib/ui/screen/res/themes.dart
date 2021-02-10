@@ -36,44 +36,52 @@ final lightTheme = ThemeData(
       color: AppColorsLight.secondary,
     ),
   ),
-  textTheme: TextTheme(
-    headline1: AppTextStyles.largeTitle.copyWith(
-      color: AppColorsLight.main,
-    ),
-    headline2: AppTextStyles.subTitle.copyWith(
-      color: AppColorsLight.secondary,
-    ),
-    subtitle1: AppTextStyles.title.copyWith(
-      color: AppColorsLight.secondary,
-    ),
-    subtitle2: AppTextStyles.text.copyWith(
-      color: AppColorsLight.secondary,
-    ),
-    bodyText1: AppTextStyles.smallBold.copyWith(
-      color: AppColorsLight.secondary,
-    ),
-    bodyText2: AppTextStyles.small.copyWith(
-      color: AppColorsLight.secondary2,
-    ),
-    headline3: AppTextStyles.small.copyWith(
-      color: AppColorsLight.green,
-    ),
-    headline4: AppTextStyles.small.copyWith(
-      color: AppColorsLight.secondary2,
-    ),
-    headline5: AppTextStyles.small.copyWith(
-      color: AppColorsLight.secondary,
-    ),
-    overline: AppTextStyles.superSmall.copyWith(
-      color: AppColorsLight.secondary,
-    ),
-    button: AppTextStyles.button.copyWith(
-      color: AppColorsLight.white,
-    ),
-    caption: AppTextStyles.smallBold.copyWith(
-      color: AppColorsLight.white,
-    ),
+  sliderTheme: SliderThemeData(
+    activeTrackColor: AppColorsLight.green,
+    inactiveTrackColor: AppColorsLight.inactiveBlack,
+    thumbColor: AppColorsLight.white,
+    overlayColor: AppColorsLight.inactiveBlack,
   ),
+  textTheme: TextTheme(
+      headline1: AppTextStyles.largeTitle.copyWith(
+        color: AppColorsLight.main,
+      ),
+      headline2: AppTextStyles.subTitle.copyWith(
+        color: AppColorsLight.secondary,
+      ),
+      subtitle1: AppTextStyles.title.copyWith(
+        color: AppColorsLight.secondary,
+      ),
+      subtitle2: AppTextStyles.text.copyWith(
+        color: AppColorsLight.secondary,
+      ),
+      bodyText1: AppTextStyles.smallBold.copyWith(
+        color: AppColorsLight.secondary,
+      ),
+      bodyText2: AppTextStyles.small.copyWith(
+        color: AppColorsLight.secondary2,
+      ),
+      headline3: AppTextStyles.small.copyWith(
+        color: AppColorsLight.green,
+      ),
+      headline4: AppTextStyles.small.copyWith(
+        color: AppColorsLight.secondary2,
+      ),
+      headline5: AppTextStyles.small.copyWith(
+        color: AppColorsLight.secondary,
+      ),
+      overline: AppTextStyles.superSmall.copyWith(
+        color: AppColorsLight.secondary,
+      ),
+      button: AppTextStyles.button.copyWith(
+        color: AppColorsLight.white,
+      ),
+      caption: AppTextStyles.smallBold.copyWith(
+        color: AppColorsLight.white,
+      ),
+      headline6: AppTextStyles.filtersSliderTitle.copyWith(
+        color: AppColorsLight.main,
+      )),
 );
 
 // darkTheme - темная тема для приложения
@@ -108,6 +116,12 @@ final darkTheme = ThemeData(
     indicator: AppDecorations.tabBarBackground.copyWith(
       color: AppColorsDark.white,
     ),
+  ),
+  sliderTheme: SliderThemeData(
+    activeTrackColor: AppColorsDark.green,
+    inactiveTrackColor: AppColorsDark.inactiveBlack,
+    thumbColor: AppColorsDark.white,
+    overlayColor: AppColorsDark.inactiveBlack,
   ),
   textTheme: TextTheme(
     headline1: AppTextStyles.largeTitle.copyWith(
@@ -144,6 +158,9 @@ final darkTheme = ThemeData(
       color: AppColorsDark.white,
     ),
     caption: AppTextStyles.smallBold.copyWith(
+      color: AppColorsDark.white,
+    ),
+    headline6: AppTextStyles.filtersSliderTitle.copyWith(
       color: AppColorsDark.white,
     ),
   ),

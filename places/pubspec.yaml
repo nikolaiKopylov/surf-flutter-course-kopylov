@@ -16,6 +16,8 @@ dependencies:
 
   flutter_svg: ^0.19.2+1
 
+  sprintf: "^4.0.0"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
