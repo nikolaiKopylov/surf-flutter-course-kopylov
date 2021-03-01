@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:places/domain/search_radius.dart';
+import 'package:places/domain/filter.dart';
+import 'filters_screen/filters_screen_widget.dart';
 import 'package:places/ui/constants.dart';
-import 'package:sprintf/sprintf.dart';
+import 'package:places/ui/styles/text_styles.dart';
 
+/// FiltersScreen - экран отображения фильтрации интересных SightCard
 class FiltersScreen extends StatefulWidget {
   FiltersScreen({Key key}) : super(key: key);
   @override
@@ -10,78 +12,64 @@ class FiltersScreen extends StatefulWidget {
 }
 
 class _FiltersScreenState extends State<FiltersScreen> {
+  final activeFilters = <Filter>{};
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      body: Container(
-        child: DistanceSlider(),
-      ),
-    );
-  }
-}
-
-class DistanceSlider extends StatefulWidget {
-  DistanceSlider({Key key}) : super(key: key);
-  @override
-  DistanceSliderState createState() => DistanceSliderState();
-}
-
-class DistanceSliderState extends State<DistanceSlider> {
-  RangeValues _currentRangeValues = const RangeValues(4000, 8000);
-
-  SearchRadius searchRadius;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 56,
-        ),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 16.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                AppTexts.sliderTitle,
-                style: Theme.of(context).textTheme.headline6,
-                textAlign: TextAlign.start,
-              ),
-              Text(
-                sprintf(AppTexts.sliderRadius, [
-                  _currentRangeValues.start.round().toString(),
-                  _currentRangeValues.end.round().toString(),
-                ]),
-                style: Theme.of(context).textTheme.headline6.copyWith(
-                      color: AppColorsDark.secondary2,
-                    ),
-              ),
-            ],
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      appBar: AppBar(
+        toolbarHeight: 56,
+        elevation: 0,
+        leading: IconButton(
+          color: Theme.of(context).primaryColor,
+          icon: Icon(
+            Icons.arrow_back_ios_rounded,
+            size: 24,
           ),
-        ),
-        SizedBox(height: 8.0),
-        RangeSlider(
-          values: _currentRangeValues,
-          min: 100,
-          max: 10000,
-          divisions: 1000,
-          labels: RangeLabels(
-            _currentRangeValues.start.round().toString(),
-            _currentRangeValues.end.round().toString(),
-          ),
-          onChanged: (RangeValues values) {
-            setState(() {
-              _currentRangeValues = values;
-              searchRadius = SearchRadius(
-                startValue: _currentRangeValues.start.round(),
-                endValue: _currentRangeValues.end.round(),
-              );
-            });
+          onPressed: () {
+            print('press Back');
           },
         ),
-      ],
+        actions: [
+          TextButton(
+            onPressed: () {
+              setState(() {
+                activeFilters.clear();
+              });
+            },
+            child: Text(
+              AppTexts.clear,
+              style: AppTextStyles.text.copyWith(
+                color: Theme.of(context).buttonColor,
+              ),
+            ),
+          )
+        ],
+      ),
+      body: Column(
+        children: [
+          CategoryFilters(
+              activeFilters: activeFilters,
+              onPressed: (filter) {
+                setState(
+                  () {
+                    if (activeFilters.contains(filter)) {
+                      activeFilters.remove(filter);
+                    } else {
+                      activeFilters.add(filter);
+                    }
+                  },
+                );
+              }),
+          DistanceSlider(),
+          Expanded(
+            child: SizedBox(height: 152.0),
+          ),
+          FilterScreenButton(
+            count: activeFilters.length,
+          )
+        ],
+      ),
     );
   }
 }
