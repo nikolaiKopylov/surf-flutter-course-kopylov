@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/ui/styles/text_styles.dart';
 import '../../constants.dart';
 
 /// SightDetailButtonToFavorites - add to favorites button

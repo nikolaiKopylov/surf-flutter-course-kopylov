@@ -39,6 +39,16 @@ class BottomNavigationView extends StatelessWidget {
             ),
             title: Text('favorite'),
           ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AppIcons.iconSettingsFill,
+              color: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .unselectedIconTheme
+                  .color,
+            ),
+            title: Text('settings'),
+          )
         ],
       ),
     );
