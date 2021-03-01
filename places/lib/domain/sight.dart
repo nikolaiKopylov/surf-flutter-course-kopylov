@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Файл содержит модель данных Sight
-///
-
+/// Sight - модель данных описывающих интересное место
 class Sight {
   final String name;
   final double lat;
