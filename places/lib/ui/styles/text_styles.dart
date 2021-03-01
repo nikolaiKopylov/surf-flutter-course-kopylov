@@ -48,7 +48,7 @@ class AppTextStyles {
     fontSize: 14,
   );
 
-  static TextStyle filtersSliderTitle = _textStyleRoboto.copyWith(
+  static TextStyle filtersTitle = _textStyleRoboto.copyWith(
     fontWeight: FontWeight.w400,
     fontSize: 16,
   );

@@ -18,6 +18,7 @@ class SightDetailButtonToFavorites extends StatelessWidget {
     return FlatButton.icon(
       icon: SvgPicture.asset(
         AppIcons.iconHeart,
+        color: Theme.of(context).iconTheme.color,
       ),
       label: Text(
         AppTexts.toFavorites,

@@ -5,12 +5,13 @@ import 'package:places/ui/styles/text_styles.dart';
 /// lightTheme - светлая тема для приложения
 final lightTheme = ThemeData(
   brightness: Brightness.light,
-  primaryColor: AppColorsLight.white,
+  primaryColor: AppColorsLight.main,
   backgroundColor: AppColorsLight.background,
   secondaryHeaderColor: AppColorsLight.main,
   scaffoldBackgroundColor: AppColorsLight.white,
   dividerColor: AppColorsLight.secondary2,
   buttonColor: AppColorsLight.green,
+  disabledColor: AppColorsLight.background,
   iconTheme: IconThemeData(color: AppColorsLight.secondary),
   appBarTheme: AppBarTheme(
       color: AppColorsLight.white,
@@ -79,20 +80,21 @@ final lightTheme = ThemeData(
       caption: AppTextStyles.smallBold.copyWith(
         color: AppColorsLight.white,
       ),
-      headline6: AppTextStyles.filtersSliderTitle.copyWith(
+      headline6: AppTextStyles.filtersTitle.copyWith(
         color: AppColorsLight.main,
       )),
 );
 
 // darkTheme - темная тема для приложения
 final darkTheme = ThemeData(
-  brightness: Brightness.light,
-  primaryColor: AppColorsDark.main,
+  brightness: Brightness.dark,
+  primaryColor: AppColorsDark.white,
   backgroundColor: AppColorsDark.background,
   secondaryHeaderColor: AppColorsDark.white,
   scaffoldBackgroundColor: AppColorsDark.main,
   dividerColor: AppColorsDark.secondary2,
   buttonColor: AppColorsDark.green,
+  disabledColor: AppColorsDark.dark,
   iconTheme: IconThemeData(color: AppColorsDark.white),
   appBarTheme: AppBarTheme(
       color: AppColorsDark.main,
@@ -160,7 +162,7 @@ final darkTheme = ThemeData(
     caption: AppTextStyles.smallBold.copyWith(
       color: AppColorsDark.white,
     ),
-    headline6: AppTextStyles.filtersSliderTitle.copyWith(
+    headline6: AppTextStyles.filtersTitle.copyWith(
       color: AppColorsDark.white,
     ),
   ),
