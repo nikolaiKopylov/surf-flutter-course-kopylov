@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/widget/bottom_navigation_view.dart';
+import 'package:places/ui/widget/theme_controller.dart';
+import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -9,8 +11,6 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  bool isDarkTheme = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,12 +40,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     style: Theme.of(context).textTheme.headline6,
                   ),
                   Switch(
-                    value: isDarkTheme,
+                    value:
+                        context.watch<ThemeController>().getThemeController(),
                     onChanged: (newValue) {
-                      setState(() {
-                        isDarkTheme = newValue;
-                        print(isDarkTheme);
-                      });
+                      final controller = context.read<ThemeController>();
+
+                      newValue == true
+                          ? controller.toDark()
+                          : controller.toLight();
                     },
                   )
                 ],
