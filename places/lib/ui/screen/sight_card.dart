@@ -21,16 +21,33 @@ class SightCard extends StatelessWidget {
           top: 16,
           right: 16,
         ),
-        child: Column(
-          children: [
-            SightCardHeader(
-              sight: sight,
+        child: Stack(children: [
+          Column(
+            children: [
+              SightCardHeader(
+                sight: sight,
+              ),
+              SightCardBody(
+                sight: sight,
+              )
+            ],
+          ),
+          Positioned.fill(
+            child: Material(
+              type: MaterialType.transparency,
+              child: InkWell(
+                  borderRadius: BorderRadius.circular(16.0),
+                  onTap: () {
+                    print('OnTap SightCard');
+                  }),
             ),
-            SightCardBody(
-              sight: sight,
-            )
-          ],
-        ),
+          ),
+          Positioned(
+            right: 8,
+            top: 8,
+            child: SightCardFavoriteButton(),
+          ),
+        ]),
       ),
     );
   }

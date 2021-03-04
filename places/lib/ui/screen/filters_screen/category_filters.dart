@@ -83,18 +83,27 @@ class SelectFilter extends StatelessWidget {
       children: [
         Stack(
           children: [
-            SizedBox(
-              width: 64,
-              height: 64,
-              child: FlatButton(
-                onPressed: onPressed,
-                shape: const CircleBorder(),
-                color: isSelected
-                    ? AppColorsLight.green.withOpacity(0.16)
-                    : Colors.transparent,
-                child: SvgPicture.asset(
-                  filter.icon,
-                  color: AppColorsLight.green,
+            Material(
+              type: MaterialType.transparency,
+              child: InkWell(
+                onTap: () {
+                  print('filter ripple');
+                },
+                child: SizedBox(
+                  width: 64,
+                  height: 64,
+                  child: FlatButton(
+                    onPressed: onPressed,
+                    shape: const CircleBorder(),
+                    color: //isSelected
+                        //?
+                        AppColorsLight.green.withOpacity(0.16),
+                    //: Colors.transparent,
+                    child: SvgPicture.asset(
+                      filter.icon,
+                      color: AppColorsLight.green,
+                    ),
+                  ),
                 ),
               ),
             ),
