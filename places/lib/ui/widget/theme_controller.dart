@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:places/ui/screen/res/themes.dart';
 
+/// ThemeController - Контроллер уведомляющий об изменении темы
+/// [toLight()] - выбор светлой темы
+/// [toDark()] - Выбор темной темы
 class ThemeController with ChangeNotifier {
   bool _isDark;
   ThemeData _themeData;
