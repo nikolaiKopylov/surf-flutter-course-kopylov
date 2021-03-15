@@ -49,10 +49,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         context.watch<ThemeController>().getThemeController(),
                     onChanged: (newValue) {
                       final controller = context.read<ThemeController>();
-
-                      newValue == true
-                          ? controller.toDark()
-                          : controller.toLight();
+                      if (newValue) {
+                        controller.toDark();
+                      } else
+                        controller.toLight();
                     },
                   )
                 ],
