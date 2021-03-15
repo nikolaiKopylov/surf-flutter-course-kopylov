@@ -44,6 +44,14 @@ class AppTexts {
   static const favorites = 'Избранное';
   static const wantVisitTime = 'Запланировано на 12 окт. 2020';
   static const visitedTime = 'Цель достигнута 12 окт. 2020';
+  static const sliderTitle = 'Расстояние';
+  static const sliderRadius = 'от %s до %s';
+  static const categories = 'категории';
+  static const clear = 'Очистить';
+  static const filterButton = 'ПОКАЗАТЬ(%s)';
+  static const settings = 'Настройки';
+  static const darkTheme = 'Тёмная тема';
+  static const tutorial = 'Смотреть туториал';
 }
 
 class AppIcons {
@@ -54,6 +62,15 @@ class AppIcons {
   static const iconHeart = 'res/icon/icon_heart.svg';
   static const iconMap = 'res/icon/icon_map.svg';
   static const iconList = 'res/icon/icon_list.svg';
+  static const iconCafe = 'res/icon/icon_cafe.svg';
+  static const iconHotel = 'res/icon/icon_hotel.svg';
+  static const iconMuseum = 'res/icon/icon_museum.svg';
+  static const iconPark = 'res/icon/icon_park.svg';
+  static const iconParticularPlace = 'res/icon/icon_particular_place.svg';
+  static const iconRestourant = 'res/icon/icon_restourant.svg';
+  static const iconTickChoice = 'res/icon/icon_tick_choice.svg';
+  static const iconSettingsFill = 'res/icon/icon_settings_fill.svg';
+  static const iconUnion = 'res/icon/icon_union.svg';
 }
 
 class AppDecorations {

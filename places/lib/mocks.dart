@@ -1,5 +1,8 @@
 import 'package:places/domain/sight.dart';
 
+import 'domain/filter.dart';
+import 'ui/constants.dart';
+
 /// Моковые даные для Sight
 final List<Sight> mocks = [
   Sight(
@@ -32,4 +35,38 @@ final List<Sight> mocks = [
         'Беларусский повод для гордости – самый большой и старый лесной массив Европы, охраняется ЮНЕСКО. Да, здесь в дикой природе водятся зубры. Да, на них можно даже охотится (если хватит совести). Да, это здесь подписали соглашение о развале СССР. ',
     type: 'заповедик',
   )
+];
+
+/// filterList - данные о фильтрах(категориях, для фильтрации)
+const List<Filter> filterList = const <Filter>[
+  const Filter(
+    name: 'hotel',
+    title: 'Отель',
+    icon: AppIcons.iconHotel,
+  ),
+  const Filter(
+    name: 'restourant',
+    title: 'Ресторан',
+    icon: AppIcons.iconRestourant,
+  ),
+  const Filter(
+    name: 'particular_place',
+    title: 'Особое место',
+    icon: AppIcons.iconParticularPlace,
+  ),
+  const Filter(
+    name: 'park',
+    title: 'Парк',
+    icon: AppIcons.iconPark,
+  ),
+  const Filter(
+    name: 'museum',
+    title: 'Музей',
+    icon: AppIcons.iconMuseum,
+  ),
+  const Filter(
+    name: 'cafe',
+    title: 'Кафе',
+    icon: AppIcons.iconCafe,
+  ),
 ];
