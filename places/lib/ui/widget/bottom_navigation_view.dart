@@ -3,8 +3,15 @@ import 'package:flutter_svg/svg.dart';
 import 'package:places/ui/constants.dart';
 
 // Меню BottomNavigationView для навигации в приложении
-class BottomNavigationView extends StatelessWidget {
+
+class BottomNavigationView extends StatefulWidget {
+  @override
+  _BottomNavigationViewState createState() => _BottomNavigationViewState();
+}
+
+class _BottomNavigationViewState extends State<BottomNavigationView> {
   int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,6 +46,16 @@ class BottomNavigationView extends StatelessWidget {
             ),
             title: Text('favorite'),
           ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AppIcons.iconSettingsFill,
+              color: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .unselectedIconTheme
+                  .color,
+            ),
+            title: Text('settings'),
+          )
         ],
       ),
     );

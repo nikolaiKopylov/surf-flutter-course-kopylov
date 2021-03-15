@@ -40,11 +40,6 @@ class SightCardHeader extends StatelessWidget {
             style: Theme.of(context).textTheme.caption,
           ),
         ),
-        Positioned(
-          right: 8,
-          top: 8,
-          child: SightCardFavoriteButton(),
-        ),
       ],
     );
   }

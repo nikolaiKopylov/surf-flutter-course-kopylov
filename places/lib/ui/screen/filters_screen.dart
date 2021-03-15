@@ -4,7 +4,7 @@ import 'filters_screen/filters_screen_widget.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/styles/text_styles.dart';
 
-/// FiltersScreen - экран отображения фильтрации интересных SightCard
+/// FiltersScreen - экран отображения фильтрации  SightCard
 class FiltersScreen extends StatefulWidget {
   FiltersScreen({Key key}) : super(key: key);
   @override

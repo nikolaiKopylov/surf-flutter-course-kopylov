@@ -18,6 +18,8 @@ dependencies:
 
   sprintf: "^4.0.0"
 
+  provider: ^4.3.3 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
