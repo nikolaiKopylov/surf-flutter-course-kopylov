@@ -1,23 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:places/ui/constants.dart';
 
 // Меню BottomNavigationView для навигации в приложении
-class BottomNavigationView extends StatelessWidget {
+
+class BottomNavigationView extends StatefulWidget {
+  @override
+  _BottomNavigationViewState createState() => _BottomNavigationViewState();
+}
+
+class _BottomNavigationViewState extends State<BottomNavigationView> {
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        unselectedIconTheme:
+            Theme.of(context).bottomNavigationBarTheme.unselectedIconTheme,
+        type: BottomNavigationBarType.fixed,
+        onTap: (_currentIndex) {
+          print('press BottomNavigationBarItem index = $_currentIndex');
+        },
+        currentIndex: currentIndex,
         items: [
           BottomNavigationBarItem(
-            icon: Image.asset(AppIcons.iconList),
+            icon: SvgPicture.asset(
+              AppIcons.iconList,
+              color: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .unselectedIconTheme
+                  .color,
+            ),
             title: Text('list'),
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(AppIcons.iconHeartDark),
+            icon: SvgPicture.asset(
+              AppIcons.iconHeart,
+              color: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .unselectedIconTheme
+                  .color,
+            ),
             title: Text('favorite'),
           ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AppIcons.iconSettingsFill,
+              color: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .unselectedIconTheme
+                  .color,
+            ),
+            title: Text('settings'),
+          )
         ],
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/screen/util/utils.dart';
 import 'package:places/ui/styles/text_styles.dart';
+import 'sight_card_want_visit_widget.dart';
 
 import '../../constants.dart';
 
@@ -43,22 +44,14 @@ class SightCardWantVisitHeader extends StatelessWidget {
           ),
         ),
         Positioned(
-          right: 16,
-          top: 16,
-          child: Container(
-            width: 20,
-            height: 18,
-            child: Image.asset(AppIcons.iconClose),
-          ),
+          right: 8,
+          top: 8,
+          child: SightCardWantVisitCloseButton(),
         ),
         Positioned(
-          right: 56,
-          top: 16,
-          child: Container(
-            width: 20,
-            height: 18,
-            child: Image.asset(AppIcons.iconCalendarWhite),
-          ),
+          right: 48,
+          top: 8,
+          child: SightCardWantVisitCalendarButton(),
         ),
       ],
     );

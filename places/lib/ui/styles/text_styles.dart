@@ -48,6 +48,11 @@ class AppTextStyles {
     fontSize: 14,
   );
 
+  static TextStyle filtersTitle = _textStyleRoboto.copyWith(
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+  );
+
   static TextStyle textStyleAppBarBlack = _textStyleRoboto.copyWith(
     color: AppColorsLight.main,
     fontSize: 32,

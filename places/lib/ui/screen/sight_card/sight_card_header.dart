@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/screen/sight_card/sight_card_widget.dart';
 import 'package:places/ui/screen/util/utils.dart';
-import 'package:places/ui/styles/text_styles.dart';
-
-import '../../constants.dart';
 
 /// SightCardHeader - sight card header (image, type, favorite button)
 class SightCardHeader extends StatelessWidget {
@@ -40,15 +38,6 @@ class SightCardHeader extends StatelessWidget {
           child: Text(
             sight.type,
             style: Theme.of(context).textTheme.caption,
-          ),
-        ),
-        Positioned(
-          right: 16,
-          top: 16,
-          child: Container(
-            width: 20,
-            height: 18,
-            child: Image.asset(AppIcons.iconHeart),
           ),
         ),
       ],
