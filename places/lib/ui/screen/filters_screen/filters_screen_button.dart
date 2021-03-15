@@ -1,9 +1,9 @@
-// FilterScreenButton - кнопка показать выбранные категории
 import 'package:flutter/material.dart';
 import 'package:sprintf/sprintf.dart';
 
 import '../../constants.dart';
 
+// FilterScreenButton - кнопка показать выбранные категории
 class FilterScreenButton extends StatelessWidget {
   final int count;
 
