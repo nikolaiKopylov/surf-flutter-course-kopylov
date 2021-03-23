@@ -31,24 +31,25 @@ class _AddSightScreenState extends State<AddSightScreen> {
           horizontal: 16.0,
           vertical: 24.0,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SelectAddCategories(),
-            AddNameSight(),
-            Row(
-              children: [
-                Expanded(
-                  child: AddPointLat(),
-                ),
-                SizedBox(width: 16.0),
-                Expanded(
-                  child: AddPointLon(),
-                ),
-              ],
-            ),
-            SizedBox(height: 15.0),
-            TextButton(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SelectAddCategories(),
+              AddNameSight(),
+              Row(
+                children: [
+                  Expanded(
+                    child: AddPointLat(),
+                  ),
+                  SizedBox(width: 16.0),
+                  Expanded(
+                    child: AddPointLon(),
+                  ),
+                ],
+              ),
+              SizedBox(height: 15.0),
+              TextButton(
                 onPressed: () {
                   print('press point map button');
                 },
@@ -57,8 +58,11 @@ class _AddSightScreenState extends State<AddSightScreen> {
                   style: Theme.of(context).textTheme.subtitle2.copyWith(
                         color: Theme.of(context).buttonColor,
                       ),
-                ))
-          ],
+                ),
+              ),
+              AddDescription(),
+            ],
+          ),
         ),
       ),
     );
@@ -123,6 +127,10 @@ class _AddNameSightState extends State<AddNameSight> {
         ),
         TextField(
           decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(
+              vertical: 10,
+              horizontal: 16,
+            ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(8.0),
@@ -156,6 +164,10 @@ class _AddPointLatState extends State<AddPointLat> {
         TextField(
           keyboardType: TextInputType.number,
           decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(
+              vertical: 10,
+              horizontal: 16,
+            ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(8.0),
@@ -176,27 +188,33 @@ class AddPointLon extends StatefulWidget {
 class _AddPointLonState extends State<AddPointLon> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          padding: EdgeInsets.only(
-            top: 24.0,
-            bottom: 12,
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: EdgeInsets.only(
+              top: 24.0,
+              bottom: 12,
+            ),
+            child: Text(AppTexts.longitude.toUpperCase()),
           ),
-          child: Text(AppTexts.longitude.toUpperCase()),
-        ),
-        TextField(
-          keyboardType: TextInputType.number,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(8.0),
+          TextField(
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.symmetric(
+                vertical: 10,
+                horizontal: 16,
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(8.0),
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -217,11 +235,21 @@ class _AddDescriptionState extends State<AddDescription> {
             top: 37.0,
             bottom: 12,
           ),
-          child: Text(AppTexts.longitude.toUpperCase()),
+          child: Text(AppTexts.descriotion.toUpperCase()),
         ),
         TextField(
-          keyboardType: TextInputType.number,
+          minLines: 2,
+          maxLines: 10,
           decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(
+              vertical: 10,
+              horizontal: 16,
+            ),
+            hintText: AppTexts.hintText.toUpperCase(),
+            hintStyle: Theme.of(context)
+                .textTheme
+                .headline6
+                .copyWith(color: AppColorsLight.secondary2),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(8.0),

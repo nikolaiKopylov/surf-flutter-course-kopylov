@@ -60,6 +60,8 @@ class AppTexts {
   static const latitude = 'широта';
   static const longitude = 'долгота';
   static const pointMap = 'Указать на карте';
+  static const descriotion = 'описание';
+  static const hintText = 'введите текст';
 }
 
 class AppIcons {
