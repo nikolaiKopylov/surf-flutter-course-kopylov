@@ -52,6 +52,14 @@ class AppTexts {
   static const settings = 'Настройки';
   static const darkTheme = 'Тёмная тема';
   static const tutorial = 'Смотреть туториал';
+  static const newPlace = 'Новое место';
+  static const cancel = 'Отмена';
+  static const category = 'категория';
+  static const noSelected = 'Не выбрано';
+  static const name = 'название';
+  static const latitude = 'широта';
+  static const longitude = 'долгота';
+  static const pointMap = 'Указать на карте';
 }
 
 class AppIcons {

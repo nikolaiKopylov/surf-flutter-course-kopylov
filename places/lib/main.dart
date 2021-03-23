@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/mocks.dart';
+import 'package:places/ui/screen/add_sight_screen.dart';
 import 'package:places/ui/screen/filters_screen.dart';
 import 'package:places/ui/screen/settings_screen.dart';
 import 'package:places/ui/screen/sight_list_screen.dart';
@@ -12,7 +13,7 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(
     ChangeNotifierProvider<ThemeController>(
-      create: (_) => ThemeController(isDark: true),
+      create: (_) => ThemeController(isDark: false),
       child: App(),
     ),
   );
@@ -28,9 +29,10 @@ class App extends StatelessWidget {
           //     SightDetail(
           //  sight: mocks[0],
           //),
-          //FiltersScreen(),
-          SettingsScreen(),
-      title: 'FirstApp',
+          //  FiltersScreen(),
+          // SettingsScreen(),
+          AddSightScreen(),
+      title: 'Places',
     );
   }
 }
