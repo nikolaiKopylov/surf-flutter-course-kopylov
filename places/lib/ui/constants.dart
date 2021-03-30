@@ -13,6 +13,7 @@ class AppColorsLight {
   static const secondary2 = Color(0xFF7C7E92);
   static const inactiveBlack = Color(0x8F7C7E92);
   static const white = Color(0xFFFFFFFF);
+  static const borderGreen = Color.fromRGBO(76, 175, 80, 0.4);
 }
 
 /// Содержит константы цветов используемые в проекте ,
@@ -29,6 +30,7 @@ class AppColorsDark {
   static const secondary2 = Color(0xFF7C7E92);
   static const inactiveBlack = Color(0x8F7C7E92);
   static const white = Color(0xFFFFFFFF);
+  static const borderGreen = Color.fromRGBO(106, 218, 111, 0.4);
 }
 
 /// Содержит константы текста используемые в проекте

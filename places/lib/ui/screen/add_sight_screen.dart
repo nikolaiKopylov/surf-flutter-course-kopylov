@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/ui/constants.dart';
+import 'package:places/ui/screen/res/themes.dart';
 
 class AddSightScreen extends StatefulWidget {
   @override
@@ -43,6 +44,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SelectAddCategories(),
               _addField(
@@ -88,11 +90,17 @@ class _AddSightScreenState extends State<AddSightScreen> {
                   ),
                 ],
               ),
+              TextButton(
+                child: Text(AppTexts.pointMap),
+                onPressed: () {
+                  print('Press point map button');
+                },
+              ),
               _addField(
                 context: context,
                 controller: descriptionController,
                 currentFocus: descriptionFocusNode,
-                hint: AppTexts.descriotion,
+                hint: AppTexts.hintText,
                 lastField: true,
                 multipleLines: true,
                 title: AppTexts.descriotion,
@@ -112,9 +120,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
-                onPressed: () {
-                  initState();
-                },
+                onPressed: () {},
                 child: Text(AppTexts.create.toUpperCase(),
                     style: Theme.of(context).textTheme.caption),
               ),
@@ -168,7 +174,7 @@ Widget _addField({
   FocusNode nextFocus,
   String hint,
   bool multipleLines,
-  bool lastField,
+  bool lastField = false,
   BuildContext context,
   String title,
   bool numericField = false,
@@ -184,7 +190,7 @@ Widget _addField({
     children: [
       Container(
         padding: EdgeInsets.only(
-          top: 37.0,
+          top: 24.0,
           bottom: 12,
         ),
         child: Text(title.toUpperCase()),
@@ -206,7 +212,7 @@ Widget _addField({
             vertical: 10,
             horizontal: 16,
           ),
-          hintText: hint.toUpperCase(),
+          hintText: hint,
           hintStyle: Theme.of(context)
               .textTheme
               .headline6
@@ -214,6 +220,27 @@ Widget _addField({
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(8.0),
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? AppColorsDark.inactiveBlack
+                  : AppColorsLight.inactiveBlack,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? AppColorsDark.borderGreen
+                  : AppColorsLight.borderGreen,
+            ),
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? AppColorsDark.borderGreen
+                  : AppColorsLight.borderGreen,
             ),
           ),
         ),
