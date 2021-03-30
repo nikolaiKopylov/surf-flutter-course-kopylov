@@ -62,6 +62,7 @@ class AppTexts {
   static const pointMap = 'Указать на карте';
   static const descriotion = 'описание';
   static const hintText = 'введите текст';
+  static const create = 'создать';
 }
 
 class AppIcons {

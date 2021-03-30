@@ -9,6 +9,15 @@ class AddSightScreen extends StatefulWidget {
 class _AddSightScreenState extends State<AddSightScreen> {
   @override
   Widget build(BuildContext context) {
+    final TextEditingController nameController = TextEditingController();
+    final TextEditingController descriptionController = TextEditingController();
+    final TextEditingController latController = TextEditingController();
+    final TextEditingController lonController = TextEditingController();
+    final FocusNode nameFocusNode = FocusNode();
+    final FocusNode descriptionFocusNode = FocusNode();
+    final FocusNode latFocusNode = FocusNode();
+    final FocusNode lonFocusNode = FocusNode();
+
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 56,
@@ -36,31 +45,79 @@ class _AddSightScreenState extends State<AddSightScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SelectAddCategories(),
-              AddNameSight(),
+              _addField(
+                context: context,
+                controller: nameController,
+                currentFocus: nameFocusNode,
+                nextFocus: latFocusNode,
+                hint: AppTexts.name,
+                lastField: false,
+                multipleLines: false,
+                title: AppTexts.name,
+              ),
               Row(
                 children: [
                   Expanded(
-                    child: AddPointLat(),
+                    child: _addField(
+                      context: context,
+                      controller: latController,
+                      currentFocus: latFocusNode,
+                      nextFocus: lonFocusNode,
+                      hint: AppTexts.latitude,
+                      lastField: false,
+                      multipleLines: false,
+                      title: AppTexts.latitude,
+                      numericField: true,
+                    ),
                   ),
-                  SizedBox(width: 16.0),
+                  SizedBox(
+                    width: 16.0,
+                  ),
                   Expanded(
-                    child: AddPointLon(),
+                    child: _addField(
+                      context: context,
+                      controller: lonController,
+                      currentFocus: lonFocusNode,
+                      nextFocus: descriptionFocusNode,
+                      hint: AppTexts.longitude,
+                      lastField: false,
+                      multipleLines: false,
+                      title: AppTexts.longitude,
+                      numericField: true,
+                    ),
                   ),
                 ],
               ),
-              SizedBox(height: 15.0),
-              TextButton(
-                onPressed: () {
-                  print('press point map button');
-                },
-                child: Text(
-                  AppTexts.pointMap,
-                  style: Theme.of(context).textTheme.subtitle2.copyWith(
-                        color: Theme.of(context).buttonColor,
-                      ),
-                ),
+              _addField(
+                context: context,
+                controller: descriptionController,
+                currentFocus: descriptionFocusNode,
+                hint: AppTexts.descriotion,
+                lastField: true,
+                multipleLines: true,
+                title: AppTexts.descriotion,
               ),
-              AddDescription(),
+              SizedBox(
+                height: 116,
+              ),
+              FlatButton(
+                height: 48,
+                minWidth: double.infinity,
+                color: Theme.of(context).buttonColor,
+                disabledColor: Theme.of(context).disabledColor,
+                disabledTextColor:
+                    Theme.of(context).brightness == Brightness.dark
+                        ? AppColorsDark.inactiveBlack
+                        : AppColorsLight.inactiveBlack,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                onPressed: () {
+                  initState();
+                },
+                child: Text(AppTexts.create.toUpperCase(),
+                    style: Theme.of(context).textTheme.caption),
+              ),
             ],
           ),
         ),
@@ -105,159 +162,62 @@ class _SelectAddCategoriesState extends State<SelectAddCategories> {
   }
 }
 
-class AddNameSight extends StatefulWidget {
-  @override
-  _AddNameSightState createState() => _AddNameSightState();
-}
-
-class _AddNameSightState extends State<AddNameSight> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          padding: EdgeInsets.only(
-            top: 24.0,
-            bottom: 12,
-          ),
-          child: Text(
-            AppTexts.name.toUpperCase(),
-          ),
+Widget _addField({
+  TextEditingController controller,
+  FocusNode currentFocus,
+  FocusNode nextFocus,
+  String hint,
+  bool multipleLines,
+  bool lastField,
+  BuildContext context,
+  String title,
+  bool numericField = false,
+}) {
+  assert(controller != null);
+  assert(currentFocus != null);
+  assert(hint != null);
+  assert(multipleLines != null);
+  assert(context != null);
+  assert(title != null);
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        padding: EdgeInsets.only(
+          top: 37.0,
+          bottom: 12,
         ),
-        TextField(
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(
-              vertical: 10,
-              horizontal: 16,
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(8.0),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class AddPointLat extends StatefulWidget {
-  @override
-  _AddPointLatState createState() => _AddPointLatState();
-}
-
-class _AddPointLatState extends State<AddPointLat> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          padding: EdgeInsets.only(
-            top: 24.0,
-            bottom: 12,
-          ),
-          child: Text(AppTexts.latitude.toUpperCase()),
-        ),
-        TextField(
-          keyboardType: TextInputType.number,
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(
-              vertical: 10,
-              horizontal: 16,
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(8.0),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class AddPointLon extends StatefulWidget {
-  @override
-  _AddPointLonState createState() => _AddPointLonState();
-}
-
-class _AddPointLonState extends State<AddPointLon> {
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: EdgeInsets.only(
-              top: 24.0,
-              bottom: 12,
-            ),
-            child: Text(AppTexts.longitude.toUpperCase()),
-          ),
-          TextField(
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-              contentPadding: EdgeInsets.symmetric(
-                vertical: 10,
-                horizontal: 16,
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(8.0),
-                ),
-              ),
-            ),
-          ),
-        ],
+        child: Text(title.toUpperCase()),
       ),
-    );
-  }
-}
-
-class AddDescription extends StatefulWidget {
-  @override
-  _AddDescriptionState createState() => _AddDescriptionState();
-}
-
-class _AddDescriptionState extends State<AddDescription> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          padding: EdgeInsets.only(
-            top: 37.0,
-            bottom: 12,
+      TextField(
+        minLines: multipleLines ? 2 : null,
+        maxLines: multipleLines ? 2 : null,
+        controller: controller,
+        focusNode: currentFocus,
+        keyboardType: numericField ? TextInputType.number : null,
+        textInputAction: TextInputAction.go,
+        onEditingComplete: () {
+          lastField
+              ? FocusScope.of(context).unfocus()
+              : FocusScope.of(context).requestFocus(nextFocus);
+        },
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(
+            vertical: 10,
+            horizontal: 16,
           ),
-          child: Text(AppTexts.descriotion.toUpperCase()),
-        ),
-        TextField(
-          minLines: 2,
-          maxLines: 10,
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(
-              vertical: 10,
-              horizontal: 16,
-            ),
-            hintText: AppTexts.hintText.toUpperCase(),
-            hintStyle: Theme.of(context)
-                .textTheme
-                .headline6
-                .copyWith(color: AppColorsLight.secondary2),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(8.0),
-              ),
+          hintText: hint.toUpperCase(),
+          hintStyle: Theme.of(context)
+              .textTheme
+              .headline6
+              .copyWith(color: AppColorsLight.secondary2),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(8.0),
             ),
           ),
         ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
 }
