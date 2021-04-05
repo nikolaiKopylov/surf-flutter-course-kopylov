@@ -41,6 +41,7 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
             onPressed: selectedIndex != -1
                 ? () {
                     print(filterList[selectedIndex].title);
+                    _sendCategory(context);
                     //addNewSight();
                   }
                 : null,
@@ -83,5 +84,10 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
         ],
       ),
     );
+  }
+
+  void _sendCategory(BuildContext context) {
+    String category = filterList[selectedIndex].title;
+    Navigator.pop(context, category);
   }
 }

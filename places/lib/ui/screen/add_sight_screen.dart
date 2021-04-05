@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/mocks.dart';
 import 'package:places/ui/constants.dart';
+import 'package:places/ui/screen/add_category_screen.dart';
 import 'package:places/ui/screen/res/themes.dart';
 
 /// AddSightScreen - экран создания нового места [Sight]
@@ -17,11 +18,13 @@ class _AddSightScreenState extends State<AddSightScreen> {
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController latController = TextEditingController();
   final TextEditingController lonController = TextEditingController();
+  final TextEditingController categoryController = TextEditingController();
 
   final FocusNode nameFocusNode = FocusNode();
   final FocusNode descriptionFocusNode = FocusNode();
   final FocusNode latFocusNode = FocusNode();
   final FocusNode lonFocusNode = FocusNode();
+  final FocusNode categoryFocusNode = FocusNode();
 
   Map _valuesAdd = {};
   bool _check = false;
@@ -55,7 +58,12 @@ class _AddSightScreenState extends State<AddSightScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SelectAddCategories(),
+              _selectAddCategories(
+                context: context,
+                controller: categoryController,
+                currentFocus: categoryFocusNode,
+                nextFocus: nameFocusNode,
+              ),
               _addField(
                 context: context,
                 controller: nameController,
@@ -199,9 +207,9 @@ class _AddSightScreenState extends State<AddSightScreen> {
                 : FocusScope.of(context).requestFocus(nextFocus);
           },
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(
-              vertical: 10,
-              horizontal: 16,
+            contentPadding: EdgeInsets.only(
+              left: 16.0,
+              right: 10.0,
             ),
             hintText: hint,
             hintStyle: Theme.of(context)
@@ -209,11 +217,12 @@ class _AddSightScreenState extends State<AddSightScreen> {
                 .headline6
                 .copyWith(color: AppColorsLight.secondary2),
             suffix: Container(
-              height: 20,
-              width: 20,
+              //padding: EdgeInsets.all(10),
+              height: 20.0,
+              width: 20.0,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.black, //remove this when you add image.
+                color: Colors.black,
               ),
               child: IconButton(
                 padding: EdgeInsets.all(2),
@@ -249,6 +258,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
               ),
             ),
           ),
+          style: Theme.of(context).textTheme.headline5.copyWith(fontSize: 16),
         ),
       ],
     );
@@ -260,7 +270,8 @@ class _AddSightScreenState extends State<AddSightScreen> {
     if (_valuesAdd['name'] != '' &&
         _valuesAdd['lat'] != '' &&
         _valuesAdd['lon'] != '' &&
-        _valuesAdd['details'] != '') {
+        _valuesAdd['details'] != '' &&
+        _valuesAdd['type'] != '') {
       _check = true;
     }
     setState(() {});
@@ -268,39 +279,42 @@ class _AddSightScreenState extends State<AddSightScreen> {
 
   /// addNewSight добавляет новое место [Sight] в массив моковых даных[mocks]
   void addNewSight() {
-    var newSight = Sight(
-      name: _valuesAdd['name'],
-      lat: double.parse(_valuesAdd['lat'].toString()),
-      lon: double.parse(_valuesAdd['lon'].toString()),
-      url: 'url',
-      details: _valuesAdd['details'],
-      type: '',
-    );
+    if (_check) {
+      var newSight = Sight(
+        name: _valuesAdd['name'],
+        lat: double.parse(_valuesAdd['lat'].toString()),
+        lon: double.parse(_valuesAdd['lon'].toString()),
+        url: 'url',
+        details: _valuesAdd['details'],
+        type: _valuesAdd['type'],
+      );
 
-    mocks.add(newSight);
-    print(mocks);
+      mocks.add(newSight);
+      print(mocks);
 
-    nameController.clear();
-    descriptionController.clear();
-    latController.clear();
-    lonController.clear();
+      categoryController.clear();
+      nameController.clear();
+      descriptionController.clear();
+      latController.clear();
+      lonController.clear();
 
-    _check = false;
+      _valuesAdd.clear();
 
-    setState(() {});
+      _check = false;
+
+      setState(() {});
+    }
   }
-}
 
-/// SelectAddCategories - открывает screen AddCategory
-/// для выбора категории нового места
-class SelectAddCategories extends StatefulWidget {
-  @override
-  _SelectAddCategoriesState createState() => _SelectAddCategoriesState();
-}
+  /// SelectAddCategories - открывает screen AddCategory
+  /// для выбора категории нового места
 
-class _SelectAddCategoriesState extends State<SelectAddCategories> {
-  @override
-  Widget build(BuildContext context) {
+  Widget _selectAddCategories({
+    TextEditingController controller,
+    FocusNode currentFocus,
+    FocusNode nextFocus,
+    BuildContext context,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -309,22 +323,43 @@ class _SelectAddCategoriesState extends State<SelectAddCategories> {
             AppTexts.category.toUpperCase(),
           ),
         ),
-        TextField(
-          readOnly: true,
-          autofocus: true,
-          onTap: () {
-            print('tap select category');
-          },
-          decoration: InputDecoration(
-            suffixIcon: Icon(Icons.arrow_forward_ios_rounded),
-            hintText: AppTexts.noSelected,
-            hintStyle: Theme.of(context)
-                .textTheme
-                .headline6
-                .copyWith(color: AppColorsLight.secondary2),
+        SizedBox(
+          height: 40,
+          child: TextField(
+            controller: controller,
+            focusNode: currentFocus,
+            readOnly: true,
+            autofocus: true,
+            onTap: () {
+              print('tap select category');
+              _awaitCategory(context, controller);
+              FocusScope.of(context).requestFocus(nextFocus);
+            },
+            decoration: InputDecoration(
+              suffixIcon: Icon(Icons.arrow_forward_ios_rounded),
+              hintText: AppTexts.noSelected,
+              hintStyle: Theme.of(context)
+                  .textTheme
+                  .headline6
+                  .copyWith(color: AppColorsLight.secondary2),
+            ),
+            style: Theme.of(context).textTheme.headline5.copyWith(fontSize: 16),
           ),
         ),
       ],
     );
+  }
+
+  void _awaitCategory(
+      BuildContext context, TextEditingController controller) async {
+    final result = await Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => AddCategoryScreen(),
+    ));
+
+    setState(() {
+      controller.text = result;
+      _valuesAdd['type'] = controller.text;
+      checkAddValues();
+    });
   }
 }
