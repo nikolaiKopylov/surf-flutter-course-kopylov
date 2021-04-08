@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:places/ui/screen/sight_card.dart';
+import 'package:places/ui/widget/add_sight_button.dart';
 import 'package:places/ui/widget/custom_app_bar.dart';
 import '../../mocks.dart';
 import 'package:places/ui/widget/bottom_navigation_view.dart';
@@ -24,6 +26,8 @@ class _SightListScreenState extends State<SightListScreen> {
               .toList(),
         ),
       ),
+      floatingActionButton: AddSightButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       bottomNavigationBar: BottomNavigationView(),
     );
   }

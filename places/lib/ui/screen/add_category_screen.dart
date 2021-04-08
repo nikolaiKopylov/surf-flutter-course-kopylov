@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/mocks.dart';
+import 'package:places/ui/screen/add_sight_screen.dart';
 
 import '../constants.dart';
 
@@ -15,6 +17,25 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 56,
+        elevation: 0,
+        leadingWidth: 74,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_outlined),
+          onPressed: () async {
+            await Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => AddSightScreen(),
+            ));
+            print('press button cancel');
+          },
+        ),
+        title: Text(
+          AppTexts.category,
+          style: Theme.of(context).textTheme.headline2,
+        ),
+        centerTitle: true,
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 16.0,
@@ -42,7 +63,6 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
                 ? () {
                     print(filterList[selectedIndex].title);
                     _sendCategory(context);
-                    //addNewSight();
                   }
                 : null,
             child: Text(AppTexts.create.toUpperCase(),
@@ -67,19 +87,24 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
             children: [
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.symmetric(vertical: 4),
-                  padding: EdgeInsets.symmetric(vertical: 8),
-                  //color:
-                  //      index == selectedIndex ? Colors.black12 : Colors.white60,
+                  height: 48,
                   child: Text(filterList[index].title,
                       style: TextStyle(fontSize: 24)),
                 ),
               ),
-              if (index == selectedIndex) Icon(Icons.keyboard_arrow_down_sharp)
+              if (index == selectedIndex)
+                SvgPicture.asset(
+                  AppIcons.iconTick,
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? AppColorsDark.green
+                      : AppColorsLight.green,
+                )
             ],
           ),
           Divider(
-            color: Colors.black,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? AppColorsDark.inactiveBlack
+                : AppColorsLight.inactiveBlack,
           )
         ],
       ),

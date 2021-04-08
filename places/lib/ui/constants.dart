@@ -14,6 +14,8 @@ class AppColorsLight {
   static const inactiveBlack = Color(0x8F7C7E92);
   static const white = Color(0xFFFFFFFF);
   static const borderGreen = Color.fromRGBO(76, 175, 80, 0.4);
+  static const yellowGradient = Color(0xFFFCDD3D);
+  static const greenGradient = Color(0xFF4CAF50);
 }
 
 /// Содержит константы цветов используемые в проекте ,
@@ -31,6 +33,8 @@ class AppColorsDark {
   static const inactiveBlack = Color(0x8F7C7E92);
   static const white = Color(0xFFFFFFFF);
   static const borderGreen = Color.fromRGBO(106, 218, 111, 0.4);
+  static const greenGradient = Color(0xFF6ADA6F);
+  static const yellowGradient = Color(0xFFFFE769);
 }
 
 /// Содержит константы текста используемые в проекте
@@ -84,6 +88,9 @@ class AppIcons {
   static const iconTickChoice = 'res/icon/icon_tick_choice.svg';
   static const iconSettingsFill = 'res/icon/icon_settings_fill.svg';
   static const iconUnion = 'res/icon/icon_union.svg';
+  static const iconClear = 'res/icon/icon_clear.svg';
+  static const iconPlus = 'res/icon/icon_plus.svg';
+  static const iconTick = 'res/icon/icon_tick.svg';
 }
 
 class AppDecorations {
