@@ -60,15 +60,16 @@ class AppTexts {
   static const tutorial = 'Смотреть туториал';
   static const newPlace = 'Новое место';
   static const cancel = 'Отмена';
-  static const category = 'категория';
+  static const category = 'Категория';
   static const noSelected = 'Не выбрано';
   static const name = 'название';
   static const latitude = 'широта';
   static const longitude = 'долгота';
   static const pointMap = 'Указать на карте';
-  static const descriotion = 'описание';
+  static const description = 'описание';
   static const hintText = 'введите текст';
   static const create = 'создать';
+  static const save = 'сохранить';
 }
 
 class AppIcons {
@@ -91,6 +92,7 @@ class AppIcons {
   static const iconClear = 'res/icon/icon_clear.svg';
   static const iconPlus = 'res/icon/icon_plus.svg';
   static const iconTick = 'res/icon/icon_tick.svg';
+  static const iconArrowBack = 'res/icon/icon_arrow.svg';
 }
 
 class AppDecorations {

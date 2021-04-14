@@ -22,7 +22,12 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
         elevation: 0,
         leadingWidth: 74,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_outlined),
+          icon: SvgPicture.asset(
+            AppIcons.iconArrowBack,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? AppColorsDark.white
+                : AppColorsLight.main,
+          ),
           onPressed: () async {
             await Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => AddSightScreen(),
@@ -65,7 +70,7 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
                     _sendCategory(context);
                   }
                 : null,
-            child: Text(AppTexts.create.toUpperCase(),
+            child: Text(AppTexts.save.toUpperCase(),
                 style: Theme.of(context).textTheme.caption),
           ),
         ]),
@@ -87,10 +92,16 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
             children: [
               Expanded(
                 child: Container(
-                  height: 48,
-                  child: Text(filterList[index].title,
-                      style: TextStyle(fontSize: 24)),
-                ),
+                    padding: EdgeInsets.only(
+                      top: 14,
+                      bottom: 14,
+                      left: 8,
+                    ),
+                    height: 48,
+                    child: Text(
+                      filterList[index].title,
+                      style: Theme.of(context).textTheme.headline6,
+                    )),
               ),
               if (index == selectedIndex)
                 SvgPicture.asset(
@@ -102,6 +113,7 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
             ],
           ),
           Divider(
+            height: 0,
             color: Theme.of(context).brightness == Brightness.dark
                 ? AppColorsDark.inactiveBlack
                 : AppColorsLight.inactiveBlack,

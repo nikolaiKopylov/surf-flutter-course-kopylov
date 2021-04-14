@@ -45,7 +45,13 @@ class _AddSightScreenState extends State<AddSightScreen> {
             ));
             print('press button cancel');
           },
-          child: Text(AppTexts.cancel),
+          child: Text(
+            AppTexts.cancel,
+            style: Theme.of(context).textTheme.subtitle2.copyWith(
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? AppColorsDark.secondary2
+                    : AppColorsLight.secondary2),
+          ),
         ),
         title: Text(
           AppTexts.newPlace,
@@ -128,7 +134,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
                 hint: AppTexts.hintText,
                 lastField: true,
                 multipleLines: true,
-                title: AppTexts.descriotion,
+                title: AppTexts.description,
                 nameField: 'details',
                 onSubmitted: (_) => checkAddValues(),
               ),
@@ -376,29 +382,6 @@ class _AddFieldState extends State<AddField> {
                 .textTheme
                 .headline6
                 .copyWith(color: AppColorsLight.secondary2),
-            /*   suffix: _isVisible
-                ? Container(
-                    height: 20.0,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.black,
-                    ),
-                    child: IconButton(
-                      padding: EdgeInsets.all(2),
-                      icon: SvgPicture.asset(
-                        AppIcons.iconClose,
-                        color: Colors.white,
-                      ),
-                      onPressed: widget.controller.value.text != ''
-                          ? () {
-                              widget.controller.clear();
-
-                              print('press close');
-                            }
-                          : null,
-                    ),
-                  )
-                : null,*/
             suffixIcon: _isVisible
                 ? InkWell(
                     onTap: widget.controller.value.text != ''
