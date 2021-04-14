@@ -70,6 +70,7 @@ class AppTexts {
   static const hintText = 'введите текст';
   static const create = 'создать';
   static const save = 'сохранить';
+  static const search = 'Поиск';
 }
 
 class AppIcons {
@@ -93,6 +94,8 @@ class AppIcons {
   static const iconPlus = 'res/icon/icon_plus.svg';
   static const iconTick = 'res/icon/icon_tick.svg';
   static const iconArrowBack = 'res/icon/icon_arrow.svg';
+  static const iconSearch = 'res/icon/icon_search.svg';
+  static const iconFilter = 'res/icon/icon_filter.svg';
 }
 
 class AppDecorations {
