@@ -30,11 +30,11 @@ class AddSightButton extends StatelessWidget {
           )),
           gradient: LinearGradient(colors: [
             Theme.of(context).brightness == Brightness.dark
-                ? AppColorsDark.greenGradient
-                : AppColorsLight.greenGradient,
-            Theme.of(context).brightness == Brightness.dark
                 ? AppColorsDark.yellowGradient
                 : AppColorsLight.yellowGradient,
+            Theme.of(context).brightness == Brightness.dark
+                ? AppColorsDark.greenGradient
+                : AppColorsLight.greenGradient,
           ]),
         ),
       ),
