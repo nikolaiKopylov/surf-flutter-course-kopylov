@@ -1,30 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:places/ui/styles/text_styles.dart';
+import 'package:places/ui/widget/search_bar.dart';
 
 import '../constants.dart';
 
 /// Widget для отображения AppBar через наследника PreferredSizeWidget
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final Widget bottom;
+
+  const CustomAppBar({
+    Key key,
+    @required this.bottom,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: preferredSize.height,
-      child: Padding(
-        padding: const EdgeInsets.only(
-          left: 16,
-          right: 16,
-          top: 64,
-        ),
-        child: Text(
-          AppTexts.appHeader,
-          style: Theme.of(context).textTheme.headline1,
-          textAlign: TextAlign.start,
-          maxLines: 2,
-        ),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 24,
+          ),
+          Expanded(
+            child: Center(
+              child: Text(
+                AppTexts.appHeader,
+                style: Theme.of(context).textTheme.headline2,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+              ),
+            ),
+          ),
+          bottom,
+        ],
       ),
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(136); // 72 + 64
+  Size get preferredSize => const Size.fromHeight(135); // 72 + 64
 }

@@ -39,7 +39,7 @@ class AppColorsDark {
 
 /// Содержит константы текста используемые в проекте
 class AppTexts {
-  static const appHeader = "Список \nинтересных мест";
+  static const appHeader = "Список интересных мест";
   static const createRoute = 'ПОСТРОИТЬ МАРШРУТ';
   static const addPlan = 'Запланировать';
   static const toFavorites = 'В Избранное';
@@ -71,6 +71,10 @@ class AppTexts {
   static const create = 'создать';
   static const save = 'сохранить';
   static const search = 'Поиск';
+  static const notSearch = 'Ничего не найдено.';
+  static const editSearchParams = 'Попробуйте изменить параметры поиска';
+  static const titleHistory = 'вы искали';
+  static const clearHistory = 'Очистить историю';
 }
 
 class AppIcons {
