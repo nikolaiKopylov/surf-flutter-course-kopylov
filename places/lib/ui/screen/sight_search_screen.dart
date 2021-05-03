@@ -19,7 +19,7 @@ class SightSearchScreen extends StatefulWidget {
 }
 
 class _SightSearchScreenState extends State<SightSearchScreen> {
-  TextEditingController controller;
+  TextEditingController textController;
   List<Sight> listSight;
   List<Sight> listSightSearch;
   // стрим, в котором данные результата завпроса
@@ -35,13 +35,13 @@ class _SightSearchScreenState extends State<SightSearchScreen> {
   void initState() {
     super.initState();
     listSight = mocks;
-    controller = TextEditingController();
+    textController = TextEditingController();
     streamController = StreamController();
   }
 
   @override
   void dispose() {
-    controller.dispose();
+    textController.dispose();
     streamController.close();
     super.dispose();
   }
@@ -52,16 +52,11 @@ class _SightSearchScreenState extends State<SightSearchScreen> {
       appBar: CustomAppBar(
         bottom: SearchBar(
           readOnly: false,
-          searchController: controller,
-          onChange: (_) async {
-            onSearch(controller.text);
+          searchController: textController,
+          onSubmitted: (_) async {
+            onSearch(textController.text);
           },
-          onClear: (_) async {
-            onClear();
-            print('''''' '''''' '');
-            print(controller.text);
-            setState(() {});
-          },
+          onClear: () => onClear(),
         ),
       ),
       body: Column(
@@ -73,36 +68,38 @@ class _SightSearchScreenState extends State<SightSearchScreen> {
               child: CircularProgressIndicator(),
             ),
           Expanded(
-              child: StreamBuilder<List<Sight>>(
-            stream: streamController.stream,
-            builder: (context, snapshot) {
-              if (snapshot.hasData && !snapshot.hasError) {
-                if (snapshot.data.isNotEmpty) {
-                  return searchList(snapshot.data);
-                } else
+            child: StreamBuilder<List<Sight>>(
+              stream: streamController.stream,
+              builder: (context, snapshot) {
+                if (snapshot.hasData && !snapshot.hasError) {
+                  if (snapshot.data.isNotEmpty) {
+                    return searchList(snapshot.data);
+                  } else
+                    return CenterMessage();
+                }
+                if (snapshot.hasError) {
                   return CenterMessage();
-              }
-              if (snapshot.hasError) {
-                return CenterMessage();
-              }
-              return HistoryList(
-                searchHistory: _searchHistory,
-                onSelect: (value) {
-                  controller.text = value;
-                  onSearch(value);
-                },
-              );
-            },
-          ))
+                }
+                return HistoryList(
+                  searchHistory: _searchHistory,
+                  onSelect: (value) {
+                    textController.text = value;
+                    onSearch(value);
+                  },
+                );
+              },
+            ),
+          )
         ],
       ),
     );
   }
 
-  Future<void> onClear() async {
-    controller.clear();
-    onSearch(controller.text);
-    streamController.add(null);
+  void onClear() async {
+    textController.clear();
+    onSearch(textController.text);
+    streamController.sink.add(null);
+    print('_searchHistory $_searchHistory');
     print('Clear');
   }
 
@@ -110,8 +107,6 @@ class _SightSearchScreenState extends State<SightSearchScreen> {
   Future<List<Sight>> search(String value) async {
     final result = listSight.where((sight) =>
         sight.name.toLowerCase().contains(value.trim().toLowerCase()));
-    print('$value');
-    print(result.toList());
     return result.toList();
   }
 
@@ -298,25 +293,31 @@ class _HistoryListState extends State<HistoryList> {
     }
 
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          Text(
-            AppTexts.titleHistory.toUpperCase(),
-            style: Theme.of(context).textTheme.headline4,
-          ),
-          ListView.separated(
-              itemBuilder: (context, index) => HistoryItem(
-                    title: list[index],
-                    onTap: () => widget.onSelect(list[index]),
-                    onDelete: () => onDeleteItem(index),
-                  ),
-              separatorBuilder: (context, index) => Divider(),
-              itemCount: list.length),
-          TextButton(
-            onPressed: onClearHistory,
-            child: Text(AppTexts.clearHistory),
-          )
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              AppTexts.titleHistory.toUpperCase(),
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) => HistoryItem(
+                      title: list[index],
+                      onTap: () => widget.onSelect(list[index]),
+                      onDelete: () => onDeleteItem(index),
+                    ),
+                separatorBuilder: (context, index) => Divider(),
+                itemCount: list.length),
+            TextButton(
+              onPressed: onClearHistory,
+              child: Text(AppTexts.clearHistory),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -356,7 +357,10 @@ class HistoryItem extends StatelessWidget {
         style: Theme.of(context).textTheme.bodyText2,
       ),
       trailing: IconButton(
-        icon: SvgPicture.asset(AppIcons.iconClose),
+        icon: SvgPicture.asset(
+          AppIcons.iconClose,
+          color: Colors.black,
+        ),
         onPressed: onDelete,
       ),
       onTap: onTap,

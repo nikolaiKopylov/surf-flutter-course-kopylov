@@ -9,15 +9,15 @@ import 'package:places/ui/screen/sight_search_screen.dart';
 class SearchBar extends StatelessWidget implements PreferredSizeWidget {
   final bool readOnly;
   final TextEditingController searchController;
-  final Function onChange;
+
   final Function onSubmitted;
+
   final Function onClear;
 
   SearchBar({
     Key key,
     this.readOnly = true,
     this.searchController,
-    this.onChange,
     this.onSubmitted,
     this.onClear,
   }) : super(key: key);
@@ -41,11 +41,11 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
           TextField(
             readOnly: readOnly,
             controller: searchController,
-            onChanged: onChange,
             onSubmitted: onSubmitted,
+            onChanged: searchController.text.endsWith(' ') ? onSubmitted : null,
             decoration: readOnly
                 ? InputDecorationReadOnly(context)
-                : InputDecorationSearch(context, searchController, onClear),
+                : InputDecorationSearch(context, searchController),
             onTap: readOnly
                 ? () async {
                     print('press filters in searh');
@@ -100,9 +100,9 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  /// InputDecoration - для  [SearchBar]  на экране [SightSearchScreen]
+  /// InputDecoration - для  [SearchBar]  на главном экране [SightSearchScreen]
   InputDecoration InputDecorationSearch(
-      BuildContext context, TextEditingController controller, Function onTap) {
+      BuildContext context, TextEditingController controller) {
     return InputDecoration(
       contentPadding: EdgeInsets.only(bottom: 15),
       hintText: AppTexts.search,
@@ -113,11 +113,7 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       prefixIconConstraints: BoxConstraints(),
       suffixIcon: InkWell(
-        onTap: () async {
-          searchController.clear();
-          print('aaaaaa $searchController.text');
-          onTap;
-        },
+        onTap: onClear,
         child: Material(
           type: MaterialType.transparency,
           child: Padding(
