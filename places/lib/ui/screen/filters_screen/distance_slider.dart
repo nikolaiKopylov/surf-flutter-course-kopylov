@@ -5,7 +5,9 @@ import 'package:sprintf/sprintf.dart';
 
 /// DistanceSlider - слайдер для отображения расстояния до обьектов
 class DistanceSlider extends StatefulWidget {
-  DistanceSlider({Key key}) : super(key: key);
+  final ValueChanged<SearchRadius> onRadius;
+
+  DistanceSlider({Key key, this.onRadius}) : super(key: key);
   @override
   DistanceSliderState createState() => DistanceSliderState();
 }
@@ -58,9 +60,10 @@ class DistanceSliderState extends State<DistanceSlider> {
             setState(() {
               _currentRangeValues = values;
               searchRadius = SearchRadius(
-                startValue: _currentRangeValues.start.round(),
-                endValue: _currentRangeValues.end.round(),
+                startValue: _currentRangeValues.start.round().toDouble(),
+                endValue: _currentRangeValues.end.round().toDouble(),
               );
+              widget.onRadius(searchRadius);
             });
           },
         ),

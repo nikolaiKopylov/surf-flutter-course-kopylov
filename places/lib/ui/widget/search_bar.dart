@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:places/domain/filter.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/screen/filters_screen.dart';
@@ -11,8 +12,9 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
   final TextEditingController searchController;
 
   final Function onSubmitted;
-
+  final Function onChange;
   final Function onClear;
+  final Filter filter;
 
   SearchBar({
     Key key,
@@ -20,6 +22,8 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
     this.searchController,
     this.onSubmitted,
     this.onClear,
+    this.onChange,
+    this.filter,
   }) : super(key: key);
 
   @override
@@ -42,7 +46,7 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
             readOnly: readOnly,
             controller: searchController,
             onSubmitted: onSubmitted,
-            onChanged: searchController.text.endsWith(' ') ? onSubmitted : null,
+            onChanged: onChange,
             decoration: readOnly
                 ? InputDecorationReadOnly(context)
                 : InputDecorationSearch(context, searchController),

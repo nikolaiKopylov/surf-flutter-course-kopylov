@@ -1,6 +1,6 @@
 import 'package:places/domain/sight.dart';
 
-import 'domain/filter.dart';
+import 'domain/category.dart';
 import 'ui/constants.dart';
 
 /// Моковые даные для Sight
@@ -38,33 +38,33 @@ final List<Sight> mocks = [
 ];
 
 /// filterList - данные о фильтрах(категориях, для фильтрации)
-const List<Filter> filterList = const <Filter>[
-  const Filter(
+const List<Category> filterList = const <Category>[
+  const Category(
     name: 'hotel',
     title: 'Отель',
     icon: AppIcons.iconHotel,
   ),
-  const Filter(
+  const Category(
     name: 'restourant',
     title: 'Ресторан',
     icon: AppIcons.iconRestourant,
   ),
-  const Filter(
+  const Category(
     name: 'particular_place',
     title: 'Особое место',
     icon: AppIcons.iconParticularPlace,
   ),
-  const Filter(
+  const Category(
     name: 'park',
     title: 'Парк',
     icon: AppIcons.iconPark,
   ),
-  const Filter(
+  const Category(
     name: 'museum',
     title: 'Музей',
     icon: AppIcons.iconMuseum,
   ),
-  const Filter(
+  const Category(
     name: 'cafe',
     title: 'Кафе',
     icon: AppIcons.iconCafe,

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
 class SearchRadius {
-  final int startValue;
-  final int endValue;
+  final double startValue;
+  final double endValue;
 
   SearchRadius({
     @required this.startValue,

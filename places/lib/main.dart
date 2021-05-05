@@ -26,14 +26,14 @@ class App extends StatelessWidget {
     return MaterialApp(
       theme: context.watch<ThemeController>().getTheme(),
       home: //VisitingScreen(),
-          //    SightListScreen(), //
-          //     SightDetail(
-          //  sight: mocks[0],
-          //),
-          //  FiltersScreen(),
-          // SettingsScreen(),
-          //AddSightScreen(),
-          SightSearchScreen(),
+          SightListScreen(), //
+      //     SightDetail(
+      //  sight: mocks[0],
+      //),
+      //  FiltersScreen(),
+      // SettingsScreen(),
+      //AddSightScreen(),
+      //  SightSearchScreen(),
       title: 'Places',
     );
   }
