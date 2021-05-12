@@ -7,10 +7,10 @@ class Point {
   final double lat;
   final double lon;
 
-  Point(
+  Point({
     @required this.lat,
     @required this.lon,
-  )   : assert(lat != null),
+  })  : assert(lat != null),
         assert(lon != null);
 }
 
