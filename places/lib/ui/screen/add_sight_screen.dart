@@ -186,7 +186,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
   void addNewSight() {
     if (_check) {
       Iterable<Category> _type = filterList
-          .where((element) => element.name == categoryController.text);
+          .where((element) => element.title == categoryController.text);
       var newSight = Sight(
         name: nameController.text,
         lat: double.parse(latController.text),
