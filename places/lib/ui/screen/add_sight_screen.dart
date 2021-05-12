@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:places/domain/category.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/mocks.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/screen/add_category_screen.dart';
-import 'package:places/ui/screen/res/themes.dart';
+
 import 'package:places/ui/screen/sight_list_screen.dart';
 
 /// AddSightScreen - экран создания нового места [Sight]
@@ -184,6 +185,8 @@ class _AddSightScreenState extends State<AddSightScreen> {
   /// addNewSight добавляет новое место [Sight] в массив моковых даных[mocks]
   void addNewSight() {
     if (_check) {
+      Iterable<Category> _type = filterList
+          .where((element) => element.name == categoryController.text);
       var newSight = Sight(
         name: nameController.text,
         lat: double.parse(latController.text),
@@ -191,7 +194,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
         url:
             'https://34travel.me/media/upload/images/2020/MAY/marshrut-luban/IMG_7526.jpg',
         details: descriptionController.text,
-        type: categoryController.text,
+        type: _type.first,
       );
 
       mocks.add(newSight);
@@ -304,13 +307,13 @@ class AddField extends StatefulWidget {
 
   const AddField({
     Key key,
-    this.controller,
-    this.currentFocus,
+    @required this.controller,
+    @required this.currentFocus,
     this.nextFocus,
-    this.hint,
-    this.multipleLines,
+    @required this.hint,
+    @required this.multipleLines,
     this.lastField = false,
-    this.title,
+    @required this.title,
     this.numericField = false,
     this.nameField,
     this.onSubmitted,

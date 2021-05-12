@@ -2,7 +2,9 @@ import 'dart:async';
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:places/domain/filter.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/mocks.dart';
 import 'package:places/ui/screen/sight_detail.dart';
@@ -13,7 +15,14 @@ import 'package:provider/provider.dart';
 
 import '../constants.dart';
 
+/// SightSearchScreen - экран поиска интересных мест
 class SightSearchScreen extends StatefulWidget {
+  final Filter filter;
+
+  const SightSearchScreen({
+    Key key,
+    this.filter,
+  }) : super(key: key);
   @override
   _SightSearchScreenState createState() => _SightSearchScreenState();
 }
@@ -50,11 +59,19 @@ class _SightSearchScreenState extends State<SightSearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
+        isBackVisible: true,
         bottom: SearchBar(
           readOnly: false,
           searchController: textController,
           onSubmitted: (_) async {
             onSearch(textController.text);
+          },
+          onChange: (_) async {
+            var value = textController.text;
+            if (value.endsWith(' ')) {
+              onSearch(value);
+              print('value $value');
+            }
           },
           onClear: () => onClear(),
         ),
@@ -95,6 +112,7 @@ class _SightSearchScreenState extends State<SightSearchScreen> {
     );
   }
 
+  // очистка текстового поля поиска
   void onClear() async {
     textController.clear();
     onSearch(textController.text);
@@ -105,9 +123,29 @@ class _SightSearchScreenState extends State<SightSearchScreen> {
 
   // функция возвращает список результатов поиска
   Future<List<Sight>> search(String value) async {
-    final result = listSight.where((sight) =>
+    final listFilteredSight =
+        filteredSightList(listSight, currentPoint, widget.filter);
+
+    final result = listFilteredSight.where((sight) =>
         sight.name.toLowerCase().contains(value.trim().toLowerCase()));
     return result.toList();
+  }
+
+  // функция поиска
+  Future<void> onSearch(String value) async {
+    if (value != '') {
+      setLoading(true);
+      streamSubscription?.cancel();
+      streamSubscription = search(value).asStream().listen((event) {
+        setLoading(false);
+        streamController.sink.add(event);
+        //добавляем в историю  поиска запросы
+        _searchHistory.add(value.trim());
+      }, onError: (error) {
+        setLoading(false);
+        streamController.addError(error);
+      });
+    }
   }
 
   // вывод результатов поиска списком
@@ -128,23 +166,7 @@ class _SightSearchScreenState extends State<SightSearchScreen> {
     );
   }
 
-  // функция поиска
-  Future<void> onSearch(String value) async {
-    if (value != '') {
-      setLoading(true);
-      streamSubscription?.cancel();
-      streamSubscription = search(value).asStream().listen((event) {
-        setLoading(false);
-        streamController.sink.add(event);
-        //добавляем в историю  поиска запросы
-        _searchHistory.add(value);
-      }, onError: (error) {
-        setLoading(false);
-        streamController.addError(error);
-      });
-    }
-  }
-
+  // индикатор выполнения запроса загрузки данных
   void setLoading(bool isLoading) {
     setState(() {
       _isLoading = isLoading;
@@ -152,7 +174,7 @@ class _SightSearchScreenState extends State<SightSearchScreen> {
   }
 }
 
-/// [SearchResultItem] вывод результатов поиска
+/// SearchResultItem - widget вывод результатов поиска
 class SearchResultItem extends StatelessWidget {
   final Sight sight;
   final Function onTap;
@@ -164,10 +186,18 @@ class SearchResultItem extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Color _primaryColor = Theme.of(context).primaryColor;
     return ListTile(
-      title: Text(sight.name),
+      title: Text(
+        sight.name,
+        style: Theme.of(context)
+            .textTheme
+            .subtitle2
+            .copyWith(color: _primaryColor),
+      ),
       subtitle: Text(
-        sight.type,
+        sight.type.title,
+        style: Theme.of(context).textTheme.bodyText2,
       ),
       onTap: onTap,
       leading: Container(
@@ -240,6 +270,8 @@ class CenterMessage extends StatelessWidget {
   }
 }
 
+/// SearchHistory - история поиска
+/// операции [add] , [clear], [remove]
 class SearchHistory {
   final List<String> _requests = [];
 
@@ -264,6 +296,7 @@ class SearchHistory {
   }
 }
 
+/// [HistoryList] - widget вывод списка истории поиска
 class HistoryList extends StatefulWidget {
   final SearchHistory searchHistory;
   final ValueChanged<String> onSelect;
@@ -298,6 +331,7 @@ class _HistoryListState extends State<HistoryList> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(height: 38.0),
             Text(
               AppTexts.titleHistory.toUpperCase(),
               style: Theme.of(context).textTheme.headline4,
@@ -322,6 +356,7 @@ class _HistoryListState extends State<HistoryList> {
     );
   }
 
+  /// Осичтка истории поиска
   void onClearHistory() {
     widget.searchHistory.clear();
     setState(() {
@@ -329,6 +364,7 @@ class _HistoryListState extends State<HistoryList> {
     });
   }
 
+  /// удаление одной записи из истории поиска
   void onDeleteItem(int index) {
     widget.searchHistory.remove(index);
     setState(() {
@@ -337,7 +373,7 @@ class _HistoryListState extends State<HistoryList> {
   }
 }
 
-// Элемент истории с кнопкеой удаления
+// Элемент истории с кнопкой удаления
 class HistoryItem extends StatelessWidget {
   final String title;
   final Function onTap;
@@ -359,7 +395,9 @@ class HistoryItem extends StatelessWidget {
       trailing: IconButton(
         icon: SvgPicture.asset(
           AppIcons.iconClose,
-          color: Colors.black,
+          color: Theme.of(context).brightness == Brightness.dark
+              ? AppColorsDark.inactiveBlack
+              : AppColorsLight.inactiveBlack,
         ),
         onPressed: onDelete,
       ),
