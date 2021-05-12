@@ -14,6 +14,8 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
   final Function onSubmitted;
   final Function onChange;
   final Function onClear;
+  final Function onFilterTap;
+  final Function onSearchTap;
   final Filter filter;
 
   SearchBar({
@@ -24,6 +26,8 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
     this.onClear,
     this.onChange,
     this.filter,
+    this.onFilterTap,
+    this.onSearchTap,
   }) : super(key: key);
 
   @override
@@ -43,37 +47,24 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
       child: SizedBox(
         child: Stack(children: [
           TextField(
-            readOnly: readOnly,
-            controller: searchController,
-            onSubmitted: onSubmitted,
-            onChanged: onChange,
-            decoration: readOnly
-                ? InputDecorationReadOnly(context)
-                : InputDecorationSearch(context, searchController),
-            onTap: readOnly
-                ? () async {
-                    print('press filters in searh');
-                    await Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => SightSearchScreen(),
-                      ),
-                    );
-                  }
-                : null,
-          ),
+              autofocus: true,
+              readOnly: readOnly,
+              controller: searchController,
+              onSubmitted: onSubmitted,
+              onChanged: onChange,
+              decoration: readOnly
+                  ? InputDecorationReadOnly(context)
+                  : InputDecorationSearch(context, searchController),
+              onTap: readOnly ? onSearchTap : null,
+              style:
+                  Theme.of(context).textTheme.headline5.copyWith(fontSize: 16)),
           if (readOnly)
             Positioned(
               right: 12,
               bottom: 8,
               top: 8,
               child: InkWell(
-                onTap: () async {
-                  print('press filters in searh');
-
-                  await Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => FiltersScreen(),
-                  ));
-                },
+                onTap: onFilterTap,
                 child: Material(
                   type: MaterialType.transparency,
                   child: SvgPicture.asset(
@@ -91,7 +82,7 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
   /// InputDecoration - для [SearchBar]  на главном экране [SightListScreen]
   InputDecoration InputDecorationReadOnly(BuildContext context) {
     return InputDecoration(
-      contentPadding: EdgeInsets.only(bottom: 15),
+      contentPadding: EdgeInsets.only(bottom: 10),
       hintText: AppTexts.search,
       hintStyle: Theme.of(context).textTheme.headline4.copyWith(fontSize: 16.0),
       prefixIcon: Padding(
@@ -104,11 +95,11 @@ class SearchBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  /// InputDecoration - для  [SearchBar]  на главном экране [SightSearchScreen]
+  /// InputDecoration - для  [SearchBar]  на  экране поиска [SightSearchScreen]
   InputDecoration InputDecorationSearch(
       BuildContext context, TextEditingController controller) {
     return InputDecoration(
-      contentPadding: EdgeInsets.only(bottom: 15),
+      contentPadding: EdgeInsets.only(bottom: 10),
       hintText: AppTexts.search,
       hintStyle: Theme.of(context).textTheme.headline4.copyWith(fontSize: 16.0),
       prefixIcon: Padding(
