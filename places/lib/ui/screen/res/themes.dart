@@ -43,6 +43,10 @@ final lightTheme = ThemeData(
     thumbColor: AppColorsLight.white,
     overlayColor: AppColorsLight.inactiveBlack,
   ),
+  textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+    primary: AppColorsLight.green,
+  )),
   textTheme: TextTheme(
       headline1: AppTextStyles.largeTitle.copyWith(
         color: AppColorsLight.main,
@@ -125,6 +129,10 @@ final darkTheme = ThemeData(
     thumbColor: AppColorsDark.white,
     overlayColor: AppColorsDark.inactiveBlack,
   ),
+  textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+    primary: AppColorsDark.green,
+  )),
   textTheme: TextTheme(
     headline1: AppTextStyles.largeTitle.copyWith(
       color: AppColorsDark.white,

@@ -7,9 +7,12 @@ import '../../constants.dart';
 class FilterScreenButton extends StatelessWidget {
   final int count;
 
+  final Function onPressed;
+
   const FilterScreenButton({
     Key key,
     this.count,
+    this.onPressed,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -26,11 +29,7 @@ class FilterScreenButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
-        onPressed: count != 0
-            ? () {
-                print('press FilterScreenButton count = $count ');
-              }
-            : null,
+        onPressed: count != 0 ? onPressed : null,
         child: Text(
             sprintf(AppTexts.filterButton, [
               count.toString(),

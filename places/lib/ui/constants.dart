@@ -13,6 +13,9 @@ class AppColorsLight {
   static const secondary2 = Color(0xFF7C7E92);
   static const inactiveBlack = Color(0x8F7C7E92);
   static const white = Color(0xFFFFFFFF);
+  static const borderGreen = Color.fromRGBO(76, 175, 80, 0.4);
+  static const yellowGradient = Color(0xFFFCDD3D);
+  static const greenGradient = Color(0xFF4CAF50);
 }
 
 /// Содержит константы цветов используемые в проекте ,
@@ -29,11 +32,14 @@ class AppColorsDark {
   static const secondary2 = Color(0xFF7C7E92);
   static const inactiveBlack = Color(0x8F7C7E92);
   static const white = Color(0xFFFFFFFF);
+  static const borderGreen = Color.fromRGBO(106, 218, 111, 0.4);
+  static const greenGradient = Color(0xFF6ADA6F);
+  static const yellowGradient = Color(0xFFFFE769);
 }
 
 /// Содержит константы текста используемые в проекте
 class AppTexts {
-  static const appHeader = "Список \nинтересных мест";
+  static const appHeader = "Список интересных мест";
   static const createRoute = 'ПОСТРОИТЬ МАРШРУТ';
   static const addPlan = 'Запланировать';
   static const toFavorites = 'В Избранное';
@@ -52,6 +58,23 @@ class AppTexts {
   static const settings = 'Настройки';
   static const darkTheme = 'Тёмная тема';
   static const tutorial = 'Смотреть туториал';
+  static const newPlace = 'Новое место';
+  static const cancel = 'Отмена';
+  static const category = 'Категория';
+  static const noSelected = 'Не выбрано';
+  static const name = 'название';
+  static const latitude = 'широта';
+  static const longitude = 'долгота';
+  static const pointMap = 'Указать на карте';
+  static const description = 'описание';
+  static const hintText = 'введите текст';
+  static const create = 'создать';
+  static const save = 'сохранить';
+  static const search = 'Поиск';
+  static const notSearch = 'Ничего не найдено.';
+  static const editSearchParams = 'Попробуйте изменить параметры поиска';
+  static const titleHistory = 'вы искали';
+  static const clearHistory = 'Очистить историю';
 }
 
 class AppIcons {
@@ -71,6 +94,12 @@ class AppIcons {
   static const iconTickChoice = 'res/icon/icon_tick_choice.svg';
   static const iconSettingsFill = 'res/icon/icon_settings_fill.svg';
   static const iconUnion = 'res/icon/icon_union.svg';
+  static const iconClear = 'res/icon/icon_clear.svg';
+  static const iconPlus = 'res/icon/icon_plus.svg';
+  static const iconTick = 'res/icon/icon_tick.svg';
+  static const iconArrowBack = 'res/icon/icon_arrow.svg';
+  static const iconSearch = 'res/icon/icon_search.svg';
+  static const iconFilter = 'res/icon/icon_filter.svg';
 }
 
 class AppDecorations {

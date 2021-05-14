@@ -39,7 +39,7 @@ class SightCardVisitedHeader extends StatelessWidget {
           left: 16,
           top: 16,
           child: Text(
-            sight.type,
+            sight.type.title,
             style: AppTextStyles.textStyleDetailWhite,
           ),
         ),
