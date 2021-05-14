@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/domain/category.dart';
 
 /// Sight - модель данных описывающих интересное место
 class Sight {
@@ -7,7 +8,7 @@ class Sight {
   final double lon;
   final String url;
   final String details;
-  final String type;
+  final Category type;
 
   Sight({
     @required this.name,

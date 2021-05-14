@@ -35,7 +35,7 @@ class SightDetailTitle extends StatelessWidget {
                   right: 16,
                 ),
                 child: Text(
-                  sight.type,
+                  sight.type.title,
                   style: Theme.of(context).textTheme.bodyText2,
                 ),
               ),

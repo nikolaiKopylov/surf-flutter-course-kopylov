@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:places/domain/filter.dart';
+import 'package:places/domain/category.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/screen/res/themes.dart';
 
@@ -8,8 +8,8 @@ import '../../../mocks.dart';
 
 /// CategoryFilters - фильтры по категориям SightCard
 class CategoryFilters extends StatelessWidget {
-  final Set<Filter> activeFilters;
-  final void Function(Filter filter) onPressed;
+  final Set<Category> activeFilters;
+  final void Function(Category filter) onPressed;
 
   const CategoryFilters({Key key, this.activeFilters, this.onPressed})
       : super(key: key);
@@ -66,7 +66,7 @@ class CategoryFilters extends StatelessWidget {
 /// метку выбора категории [isSelected],
 /// нажатие на фильтр [onPressed]
 class SelectFilter extends StatelessWidget {
-  final Filter filter;
+  final Category filter;
   final bool isSelected;
   final VoidCallback onPressed;
 
