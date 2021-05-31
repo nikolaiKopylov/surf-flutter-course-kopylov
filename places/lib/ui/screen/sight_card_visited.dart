@@ -7,10 +7,12 @@ import 'sight_card_visited/sight_card_visited_widget.dart';
 ///SightCardVisited - Экран карточки посещенного места
 class SightCardVisited extends StatelessWidget {
   final Sight sight;
+  final Function deleteVisitedCard;
 
   const SightCardVisited({
     Key key,
     @required this.sight,
+    @required this.deleteVisitedCard,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class SightCardVisited extends StatelessWidget {
           children: [
             SightCardVisitedHeader(
               sight: sight,
+              deleteVisitedCard: deleteVisitedCard,
             ),
             SightCardVisitedBody(
               sight: sight,

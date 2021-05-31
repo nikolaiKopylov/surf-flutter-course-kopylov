@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/domain/sight.dart';
 import 'package:places/ui/constants.dart';
 import 'package:places/ui/styles/text_styles.dart';
 import 'package:places/ui/widget/custom_tab_bar.dart';
@@ -17,6 +18,8 @@ class VisitingScreen extends StatefulWidget {
 class _VisitingScreenState extends State<VisitingScreen> {
   int tabIndex;
   Color tabColor;
+
+  List<Sight> visitingList = [mocks[0], mocks[2], mocks[3]];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -29,7 +32,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
           centerTitle: true,
           title: Text(
             AppTexts.favorites,
-            //style: AppTextStyles.textStyleDetailTitle,
+            style: AppTextStyles.textStyleDetailTitle,
           ),
           //  backgroundColor: AppColorsLight.background,
           bottom: CustomTabBar(),
@@ -47,10 +50,13 @@ class _VisitingScreenState extends State<VisitingScreen> {
             ),
             SingleChildScrollView(
               child: Column(
-                children: mocks
+                key: GlobalKey(),
+                children: visitingList
                     .map((item) => SightCardVisited(
-                          sight: item,
-                        ))
+                        sight: item,
+                        deleteVisitedCard: () {
+                          deleteVisitedCard(item, visitingList);
+                        }))
                     .toList(),
               ),
             ),
@@ -59,5 +65,16 @@ class _VisitingScreenState extends State<VisitingScreen> {
         bottomNavigationBar: BottomNavigationView(),
       ),
     );
+  }
+
+  void deleteVisitedCard(Sight sight, List<Sight> listSight) {
+    setState(() {
+      print(' до удаления  ');
+      print(listSight.first.name);
+
+      listSight.removeWhere((element) => sight == element);
+      print(listSight.first.name);
+      print(visitingList.first.name);
+    });
   }
 }
