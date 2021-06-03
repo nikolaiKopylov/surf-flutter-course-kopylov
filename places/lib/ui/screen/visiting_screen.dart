@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/constants.dart';
@@ -20,6 +22,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
   Color tabColor;
 
   List<Sight> visitingList = [mocks[0], mocks[2], mocks[3]];
+  List<Sight> wantVisitList = [mocks[1], mocks[3], mocks[4]];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -39,26 +42,27 @@ class _VisitingScreenState extends State<VisitingScreen> {
         ),
         body: TabBarView(
           children: [
-            SingleChildScrollView(
-              child: Column(
-                children: mocks
-                    .map((item) => SightCardWantVisit(
-                          sight: item,
-                        ))
-                    .toList(),
-              ),
+            ListView.builder(
+              itemCount: wantVisitList.length,
+              itemBuilder: (context, index) => SightCardWantVisit(
+                  key: ObjectKey(
+                    wantVisitList[index],
+                  ), // так как некоторые поля могут совпадать , а ObjectKey по Sight по идее уникальный
+                  sight: wantVisitList[index],
+                  deleteWantVisitCard: () {
+                    deleteCard(wantVisitList[index], wantVisitList);
+                  }),
             ),
-            SingleChildScrollView(
-              child: Column(
-                key: GlobalKey(),
-                children: visitingList
-                    .map((item) => SightCardVisited(
-                        sight: item,
-                        deleteVisitedCard: () {
-                          deleteVisitedCard(item, visitingList);
-                        }))
-                    .toList(),
-              ),
+            ListView.builder(
+              itemCount: visitingList.length,
+              itemBuilder: (context, index) => SightCardVisited(
+                  key: ObjectKey(
+                    visitingList[index],
+                  ), // так как некоторые поля могут совпадать , а ObjectKey по Sight по идее уникальный
+                  sight: visitingList[index],
+                  deleteVisitedCard: () {
+                    deleteCard(visitingList[index], visitingList);
+                  }),
             ),
           ],
         ),
@@ -67,14 +71,13 @@ class _VisitingScreenState extends State<VisitingScreen> {
     );
   }
 
-  void deleteVisitedCard(Sight sight, List<Sight> listSight) {
+  void deleteCard(Sight sight, List<Sight> listSight) {
     setState(() {
       print(' до удаления  ');
       print(listSight.first.name);
 
       listSight.removeWhere((element) => sight == element);
       print(listSight.first.name);
-      print(visitingList.first.name);
     });
   }
 }

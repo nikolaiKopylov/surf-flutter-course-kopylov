@@ -9,10 +9,12 @@ import '../../constants.dart';
 /// SightCardWantVisitHeader - sight card want visit header (image, type, buttons)
 class SightCardWantVisitHeader extends StatelessWidget {
   final Sight sight;
+  final Function deleteWantVisitCard;
 
   const SightCardWantVisitHeader({
     Key key,
-    this.sight,
+    @required this.sight,
+    @required this.deleteWantVisitCard,
   }) : super(key: key);
 
   @override
@@ -46,7 +48,9 @@ class SightCardWantVisitHeader extends StatelessWidget {
         Positioned(
           right: 8,
           top: 8,
-          child: SightCardWantVisitCloseButton(),
+          child: SightCardWantVisitCloseButton(
+            deleteWantVisitCard: deleteWantVisitCard,
+          ),
         ),
         Positioned(
           right: 48,

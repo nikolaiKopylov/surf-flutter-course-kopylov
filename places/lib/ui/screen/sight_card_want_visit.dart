@@ -8,10 +8,12 @@ import 'sight_card_want_visit/sight_card_want_visit_widget.dart';
 /// SightCardWantVisit - Экран карточки места, посещение которого запланнировано
 class SightCardWantVisit extends StatelessWidget {
   final Sight sight;
+  final Function deleteWantVisitCard;
 
   const SightCardWantVisit({
     Key key,
     @required this.sight,
+    @required this.deleteWantVisitCard,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class SightCardWantVisit extends StatelessWidget {
           children: [
             SightCardWantVisitHeader(
               sight: sight,
+              deleteWantVisitCard: deleteWantVisitCard,
             ),
             SightCardWantVisitBody(
               sight: sight,
