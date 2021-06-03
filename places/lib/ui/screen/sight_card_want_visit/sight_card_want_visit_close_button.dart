@@ -9,7 +9,7 @@ class SightCardWantVisitCloseButton extends StatelessWidget {
 
   const SightCardWantVisitCloseButton({
     Key key,
-    this.deleteWantVisitCard,
+    @required this.deleteWantVisitCard,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {

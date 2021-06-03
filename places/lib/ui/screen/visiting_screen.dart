@@ -50,6 +50,9 @@ class _VisitingScreenState extends State<VisitingScreen> {
                   ), // так как некоторые поля могут совпадать , а ObjectKey по Sight по идее уникальный
                   sight: wantVisitList[index],
                   deleteWantVisitCard: () {
+                    print(ObjectKey(
+                      wantVisitList[index],
+                    ));
                     deleteCard(wantVisitList[index], wantVisitList);
                   }),
             ),
@@ -73,11 +76,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
 
   void deleteCard(Sight sight, List<Sight> listSight) {
     setState(() {
-      print(' до удаления  ');
-      print(listSight.first.name);
-
       listSight.removeWhere((element) => sight == element);
-      print(listSight.first.name);
     });
   }
 }
