@@ -33,7 +33,6 @@ class SightCardWantVisitBody extends StatelessWidget {
           ),
           ConstrainedBox(
             constraints: BoxConstraints(
-              maxWidth: 160,
               maxHeight: 62,
             ),
             child: Text(

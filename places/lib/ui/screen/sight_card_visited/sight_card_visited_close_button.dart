@@ -5,13 +5,17 @@ import '../../constants.dart';
 
 /// SightCardVisitedCloseButton - button close visited sight card
 class SightCardVisitedCloseButton extends StatelessWidget {
+  final Function deleteVisitedCard;
+
+  const SightCardVisitedCloseButton({
+    Key key,
+    this.deleteVisitedCard,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return IconButton(
       iconSize: 24,
-      onPressed: () {
-        print('SightCardVisited - press Close button ');
-      },
+      onPressed: deleteVisitedCard,
       icon: SvgPicture.asset(
         AppIcons.iconClose,
       ),
