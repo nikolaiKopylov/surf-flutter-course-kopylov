@@ -64,6 +64,9 @@ class _VisitingScreenState extends State<VisitingScreen> {
                   ), // так как некоторые поля могут совпадать , а ObjectKey по Sight по идее уникальный
                   sight: visitingList[index],
                   deleteVisitedCard: () {
+                    print(ObjectKey(
+                      visitingList[index],
+                    ));
                     deleteCard(visitingList[index], visitingList);
                   }),
             ),

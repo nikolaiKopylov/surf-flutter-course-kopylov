@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/mocks.dart';
 import 'package:places/ui/screen/add_sight_screen.dart';
 
-import '../constants.dart';
+import '../../constants.dart';
 
 /// AddCategoryScreen экран выбора категории нового места
 class AddCategoryScreen extends StatefulWidget {

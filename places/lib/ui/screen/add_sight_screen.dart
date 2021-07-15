@@ -5,9 +5,11 @@ import 'package:places/domain/category.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/mocks.dart';
 import 'package:places/ui/constants.dart';
-import 'package:places/ui/screen/add_category_screen.dart';
+import 'package:places/ui/screen/add_sight_screen/add_category_screen.dart';
+import 'package:places/ui/screen/add_sight_screen/photo_adding_card.dart';
 
 import 'package:places/ui/screen/sight_list_screen.dart';
+import 'package:places/ui/widget/image_network.dart';
 
 /// AddSightScreen - экран создания нового места [Sight]
 /// и добавлния его в массив моковых даных[mocks]
@@ -29,6 +31,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
   final FocusNode lonFocusNode = FocusNode();
   final FocusNode categoryFocusNode = FocusNode();
 
+  int selectIndex = -1;
   bool _check = false;
 
   @override
@@ -70,6 +73,33 @@ class _AddSightScreenState extends State<AddSightScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              Container(
+                height: 120,
+                child: Row(
+                  children: [
+                    PhotoAddingCard(
+                      firstElement: true,
+                      addPhoto: addPhoto,
+                    ),
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: photosList.length,
+                              itemBuilder: createPhotoList,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               _selectAddCategories(
                 context: context,
                 controller: categoryController,
@@ -140,7 +170,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
                 onSubmitted: (_) => checkAddValues(),
               ),
               SizedBox(
-                height: 116,
+                height: 37,
               ),
               FlatButton(
                 height: 48,
@@ -287,6 +317,33 @@ class _AddSightScreenState extends State<AddSightScreen> {
     setState(() {
       controller.text = result;
       checkAddValues();
+    });
+  }
+
+  Widget createPhotoList(BuildContext context, int index) {
+    return PhotoAddingCard(
+      firstElement: false,
+      imageUrl: photosList[index],
+      delPhoto: () {
+        setState(() {
+          selectIndex = index;
+        });
+        print(selectIndex);
+        delPhoto(selectIndex);
+      },
+    );
+  }
+
+  void addPhoto() {
+    setState(() {
+      photosList.insert(0,
+          'https://34travel.me/media/upload/images/2020/OCTOBER/34dstpr-new/296A1215.jpg');
+    });
+  }
+
+  void delPhoto(int index) {
+    setState(() {
+      photosList.removeAt(index);
     });
   }
 }
