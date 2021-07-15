@@ -93,3 +93,12 @@ const List<Category> filterList = const <Category>[
 ];
 
 final currentPoint = Point(lat: 52.78472, lon: 27.53500);
+
+final List<String> photosList = [
+  'https://obgonay.ru/wp-content/uploads/krasivye-cifry-ot-1-do-10-dlya-detej-kartinki_55.jpg',
+  'https://obgonay.ru/wp-content/uploads/krasivye-cifry-ot-1-do-10-dlya-detej-kartinki_56.jpg',
+  'https://obgonay.ru/wp-content/uploads/krasivye-cifry-ot-1-do-10-dlya-detej-kartinki_57.jpg',
+  'https://obgonay.ru/wp-content/uploads/krasivye-cifry-ot-1-do-10-dlya-detej-kartinki_58.jpg',
+  'https://obgonay.ru/wp-content/uploads/krasivye-cifry-ot-1-do-10-dlya-detej-kartinki_59.jpg',
+  'https://obgonay.ru/wp-content/uploads/krasivye-cifry-ot-1-do-10-dlya-detej-kartinki_60.jpg',
+];
